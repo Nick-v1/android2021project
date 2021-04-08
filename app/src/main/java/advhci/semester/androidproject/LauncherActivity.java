@@ -10,9 +10,6 @@ import android.widget.ImageButton;
 
 public class LauncherActivity extends AppCompatActivity {
 
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,6 +38,7 @@ public class LauncherActivity extends AppCompatActivity {
     }
 
     protected Intent getActivity(){
+        String text = "testing git";
         return new Intent(this, FirstActivity.class);
     }
 
