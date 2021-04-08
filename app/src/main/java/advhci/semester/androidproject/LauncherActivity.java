@@ -38,7 +38,6 @@ public class LauncherActivity extends AppCompatActivity {
     }
 
     protected Intent getActivity(){
-        String text = "testing git";
         return new Intent(this, FirstActivity.class);
     }
 
