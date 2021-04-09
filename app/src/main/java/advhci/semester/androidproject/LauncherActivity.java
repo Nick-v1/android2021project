@@ -21,23 +21,23 @@ public class LauncherActivity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = getActivity();
+                Intent intent = getActivity();      //both buttons do the same thing
                 startActivity(intent);
-                finish();
+                finish();                                      /** exits app**/
             }
         });
 
         imageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = getActivity();
-                startActivity(intent);
-                finish();
+                Intent intent = getActivity();     //getActivity Method
+                startActivity(intent);            //activates the intent to move to FirstActivity
+                finish();                                     /** exits app**/
             }
         });
     }
 
-    protected Intent getActivity(){
+    protected Intent getActivity(){                          /** getActivity returns an Intent (from this Activity LauncherActivity -> FirstActivity)**/
         return new Intent(this, FirstActivity.class);
     }
 

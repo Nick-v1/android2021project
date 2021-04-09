@@ -5,19 +5,20 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context=".FirstActivity">
+    tools:context=".FirstActivity"
+    android:id="@+id/drawerLayout">
 
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:visibility="visible">
+        android:layout_height="wrap_content">
 
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:src="@drawable/sports"/>
+            android:src="@drawable/sports" />
 
+        <!-- Bottom App Bar code (3 image buttons)-->
         <com.google.android.material.bottomappbar.BottomAppBar
             android:id="@+id/bottomAppBar"
             style="@style/Widget.MaterialComponents.BottomAppBar.Colored"
@@ -30,10 +31,11 @@
                 android:id="@+id/btmBarExit"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_gravity="right"
+                android:layout_gravity="end"
                 android:backgroundTint="@color/design_default_color_primary"
                 android:padding="15dp"
-                android:src="@drawable/baseline_power_settings_new_24" />
+                android:src="@drawable/baseline_power_settings_new_24"
+                android:tooltipText="Close App"/>
 
             <ImageButton
                 android:id="@+id/btmBarMenu"
@@ -48,21 +50,20 @@
                 android:id="@+id/btmBarBack"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_gravity="left"
+                android:layout_gravity="start"
                 android:backgroundTint="@color/design_default_color_primary"
                 android:padding="15dp"
                 android:src="@drawable/baseline_arrow_back_24" />
         </com.google.android.material.bottomappbar.BottomAppBar>
-
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
+
+<!-- Drawer menu code -->
     <com.google.android.material.navigation.NavigationView
-        android:id="@+id/NavMenu"
+        android:id="@+id/NavMenuView"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start"
-
-        android:layout_marginEnd="100dp"
         android:backgroundTint="#95BABA"
         android:paddingTop="10dp"
         app:itemIconTint="#50CD34"
