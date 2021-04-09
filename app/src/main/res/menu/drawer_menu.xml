@@ -26,6 +26,12 @@
             android:title="Login"/>
         <item
             android:title="Update"/>
+        <item
+            android:title="New Item"/>
+        <item
+            android:title="New Item"/>
+        <item
+            android:title="New Item"/>
 
     </group>
 
