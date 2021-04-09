@@ -13,6 +13,13 @@
         android:layout_height="wrap_content"
         android:visibility="visible">
 
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:src="@drawable/sports"/>
+
         <com.google.android.material.bottomappbar.BottomAppBar
             android:id="@+id/bottomAppBar"
             style="@style/Widget.MaterialComponents.BottomAppBar.Colored"
@@ -47,7 +54,6 @@
                 android:backgroundTint="@color/design_default_color_primary"
                 android:padding="15dp"
                 android:src="@drawable/baseline_arrow_back_24" />
-
         </com.google.android.material.bottomappbar.BottomAppBar>
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
