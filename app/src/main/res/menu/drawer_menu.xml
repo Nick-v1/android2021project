@@ -19,11 +19,13 @@
 
         <item
             android:id="@+id/itemDrawerUpdate"
-            android:title="Update" />
+            android:title="Update"
+            android:icon="@drawable/outline_update_24"/>
 
         <item
             android:id="@+id/itemDrawerQueries"
-            android:title="Queries"/>
+            android:title="Queries"
+            android:icon="@drawable/ic_search_black_24dp"/>
 
         <item
             android:id="@+id/itemDrawerInfo"
