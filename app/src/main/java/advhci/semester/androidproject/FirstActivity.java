@@ -3,10 +3,12 @@ package advhci.semester.androidproject;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -24,7 +26,7 @@ public class FirstActivity extends AppCompatActivity {
 
     DrawerLayout drawerLayout;
     NavigationView navigationView;
-
+    Toolbar topAppBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,12 +38,23 @@ public class FirstActivity extends AppCompatActivity {
 
         navigationView.setNavigationItemSelectedListener(this::navItemSelected);
 
-        TextView exittext = findViewById(R.id.Exit);
-        exittext.setOnClickListener(this::endApp);
+        View toolBarExitApp = findViewById(R.id.appbarExit);
+        toolBarExitApp.setOnClickListener(this::endApp);              //toolbar exit button
+
+        TextView drawerMenuExitView = findViewById(R.id.Exit);
+        drawerMenuExitView.setOnClickListener(this::endApp);         //drawer exit
+
+        topAppBar = findViewById(R.id.topAppBar);          //drawer menu button
+        topAppBar.setNavigationOnClickListener(this::openDrawer);
+    }
+
+    private void openDrawer(View view) {
+        drawerLayout.openDrawer(GravityCompat.START);           //method that opens drawer
     }
 
     public void endApp(View v){
         finish();
+        Toast.makeText(getApplicationContext(), "Exited App", Toast.LENGTH_SHORT).show();
     }
 //drawer menu effects and coding here
     public boolean navItemSelected(MenuItem item){

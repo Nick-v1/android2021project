@@ -2,8 +2,9 @@
 <menu xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
-
-    <group android:checkableBehavior="single">
+    <group
+        android:id="@+id/group1"
+        android:checkableBehavior="single">
         <item
             android:id="@+id/itemDrawerAdd"
             android:icon="@drawable/baseline_add_circle_24"
@@ -12,10 +13,6 @@
             android:id="@+id/itemDrawerDelete"
             android:title="Delete"
             android:icon="@drawable/baseline_remove_circle_24"/>
-        <item
-            android:id="@+id/itemDrawerHome"
-            android:title="Home"
-            android:icon="@drawable/baseline_home_24"/>
 
         <item
             android:id="@+id/itemDrawerUpdate"
@@ -27,12 +24,21 @@
             android:title="Queries"
             android:icon="@drawable/ic_search_black_24dp"/>
 
+
+    </group>
+    <group
+        android:id="@+id/group2"
+        android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/itemDrawerHome"
+            android:title="Home"
+            android:icon="@drawable/baseline_home_24"/>
+
         <item
             android:id="@+id/itemDrawerInfo"
             android:title="Info"
             android:icon="@drawable/baseline_info_24"/>
-
-
 
 
 

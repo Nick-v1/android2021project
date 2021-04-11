@@ -7,13 +7,14 @@
     android:background="@drawable/sports"
     tools:context=".LauncherActivity">
 
-<!-- Simple app constaint layout -->
+<!-- Simple app constraint layout -->
     <TextView
         android:id="@+id/LauncherText"
         android:layout_width="411dp"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="Android project app 2021"
+        android:textColor="@color/black"
         android:textSize="25sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
