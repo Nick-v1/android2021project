@@ -2,46 +2,48 @@
 <menu xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <group
-        android:id="@+id/group1"
-        android:checkableBehavior="single">
-        <item
-            android:id="@+id/itemDrawerAdd"
-            android:icon="@drawable/baseline_add_circle_24"
-            android:title="Add" />
-        <item
-            android:id="@+id/itemDrawerDelete"
-            android:title="Delete"
-            android:icon="@drawable/baseline_remove_circle_24"/>
+    <group android:id="@+id/group1">
+        <item android:title="App functions">
+            <menu>
+                <group android:checkableBehavior="single">
+                    <item
+                        android:id="@+id/itemDrawerAdd"
+                        android:icon="@drawable/baseline_add_circle_24"
+                        android:title="Add" />
+                    <item
+                        android:id="@+id/itemDrawerDelete"
+                        android:title="Delete"
+                        android:icon="@drawable/baseline_remove_circle_24"/>
 
-        <item
-            android:id="@+id/itemDrawerUpdate"
-            android:title="Update"
-            android:icon="@drawable/outline_update_24"/>
+                    <item
+                        android:id="@+id/itemDrawerUpdate"
+                        android:title="Update"
+                        android:icon="@drawable/outline_update_24"/>
 
-        <item
-            android:id="@+id/itemDrawerQueries"
-            android:title="Queries"
-            android:icon="@drawable/ic_search_black_24dp"/>
-
-
+                    <item
+                         android:id="@+id/itemDrawerQueries"
+                         android:title="Queries"
+                        android:icon="@drawable/ic_search_black_24dp"/>
+                </group>
+            </menu>
+        </item>
     </group>
-    <group
-        android:id="@+id/group2"
-        android:checkableBehavior="single">
+    <group android:id="@+id/group2">
+        <item android:title="Least used">
+            <menu>
+                <group android:checkableBehavior="single">
+                    <item
+                        android:id="@+id/itemDrawerHome"
+                        android:title="Home"
+                        android:icon="@drawable/baseline_home_24"/>
 
-        <item
-            android:id="@+id/itemDrawerHome"
-            android:title="Home"
-            android:icon="@drawable/baseline_home_24"/>
-
-        <item
-            android:id="@+id/itemDrawerInfo"
-            android:title="Info"
-            android:icon="@drawable/baseline_info_24"/>
-
-
-
+                    <item
+                        android:id="@+id/itemDrawerInfo"
+                        android:title="Info"
+                        android:icon="@drawable/baseline_info_24"/>
+                </group>
+            </menu>
+        </item>
     </group>
 
 </menu>
