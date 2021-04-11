@@ -1,89 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="true"
-    tools:context=".FirstActivity"
-    android:id="@+id/drawerLayout">
+    tools:context=".FirstActivity">
 
-
-    <androidx.coordinatorlayout.widget.CoordinatorLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:src="@drawable/sports" />
-
-        <!-- Bottom App Bar code (3 image buttons)-->
-        <com.google.android.material.bottomappbar.BottomAppBar
-            android:id="@+id/bottomAppBar"
-            style="@style/Widget.MaterialComponents.BottomAppBar.Colored"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
-            android:layout_weight="1">
-
-            <ImageButton
-                android:id="@+id/btmBarExit"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_gravity="end"
-                android:backgroundTint="@color/design_default_color_primary"
-                android:padding="15dp"
-                android:src="@drawable/baseline_power_settings_new_24"
-                android:tooltipText="Close App"/>
-
-            <ImageButton
-                android:id="@+id/btmBarMenu"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_gravity="center"
-                android:backgroundTint="@color/design_default_color_primary"
-                android:padding="15dp"
-                android:src="@drawable/baseline_home_24" />
-
-            <ImageButton
-                android:id="@+id/btmBarBack"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_gravity="start"
-                android:backgroundTint="@color/design_default_color_primary"
-                android:padding="15dp"
-                android:src="@drawable/baseline_arrow_back_24" />
-        </com.google.android.material.bottomappbar.BottomAppBar>
-    </androidx.coordinatorlayout.widget.CoordinatorLayout>
-
-
-<!-- Drawer menu code -->
-    <com.google.android.material.navigation.NavigationView
-        android:id="@+id/NavMenuView"
-        android:layout_width="wrap_content"
+    <ImageView
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_gravity="start"
-        android:backgroundTint="#95BABA"
-        android:paddingTop="10dp"
-        app:itemIconTint="#50CD34"
-        app:menu="@menu/drawer_menu">
+        android:src="@drawable/sports" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
-            android:padding="16dp">
+    <androidx.drawerlayout.widget.DrawerLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
+        android:id="@+id/drawerLayout">
+<!-- Drawer menu code -->
+        <com.google.android.material.navigation.NavigationView
+            android:id="@+id/NavMenuView"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            android:backgroundTint="#95BABA"
+            android:paddingTop="10dp"
+            app:itemIconTint="#50CD34"
+            app:menu="@menu/drawer_menu">
 
-            <TextView
-                android:id="@+id/Exit"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="25dp"
-                android:text="Exit App"
-                android:textStyle="bold" />
-        </LinearLayout>
-    </com.google.android.material.navigation.NavigationView>
+                android:layout_gravity="bottom"
+                android:padding="16dp">
 
+                <TextView
+                    android:id="@+id/Exit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="25dp"
+                    android:text="Exit App"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </com.google.android.material.navigation.NavigationView>
+    </androidx.drawerlayout.widget.DrawerLayout>
 
-</androidx.drawerlayout.widget.DrawerLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

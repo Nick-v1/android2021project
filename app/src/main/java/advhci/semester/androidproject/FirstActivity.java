@@ -41,48 +41,34 @@ public class FirstActivity extends AppCompatActivity {
                 if(item.getItemId() == R.id.itemDrawerAdd){
                     item.setChecked(true);
                     drawerLayout.closeDrawers();
-                    /**************
-                     * ***********
-                     * ************
-                     * ***********/
+                    /*****Code Here*****/
                     return true;
                 } else if (item.getItemId() == R.id.itemDrawerDelete){
                     item.setChecked(true);
                     drawerLayout.closeDrawers();
-                    /**************
-                     * ***********
-                     * ************
-                     * ***********/
+                    /*********/
                     return true;
                 } else if (item.getItemId() == R.id.itemDrawerHome){
                     item.setChecked(true);
                     drawerLayout.closeDrawers();
-                    /**************
-                     * ***********
-                     * ************
-                     * ***********/
+                    /*********/
                     return true;
                 } else if (item.getItemId() == R.id.itemDrawerInfo){
                     item.setChecked(true);
                     drawerLayout.closeDrawers();
-                    /**************
-                     * ***********
-                     * ************
-                     * ***********/
+                    /*******/
+                    return true;
+                } else if (item.getItemId() == R.id.itemDrawerQueries){
+                    item.setChecked(true);
+                    drawerLayout.closeDrawers();
+                    return true;
+                } else if (item.getItemId() == R.id.itemDrawerUpdate){
+                    item.setChecked(true);
+                    drawerLayout.closeDrawers();
                     return true;
                 }
 
                 return false;
-            }
-        });
-
-    /** Exit buttons*/
-        ImageButton exitbutton = findViewById(R.id.btmBarExit);
-
-        exitbutton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();  /** kills app*/
             }
         });
 
