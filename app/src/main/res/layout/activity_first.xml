@@ -10,16 +10,16 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="50dp"
-        android:background="@color/white"
-        tools:layout_editor_absoluteX="50dp"
-        tools:layout_editor_absoluteY="50dp">
+        android:layout_marginTop="300dp"
+        android:layout_marginStart="25dp"
+        android:background="#ffc77d"
+        >
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="fragment here" />
+            android:text="fragment on activity here" />
 
     </FrameLayout>
     <androidx.drawerlayout.widget.DrawerLayout
@@ -34,10 +34,10 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_gravity="start"
-            android:backgroundTint="#95BABA"
-            android:paddingTop="10dp"
-            app:itemIconTint="#50CD34"
+            android:backgroundTint="#eee6ff"
             android:elevation="4dp"
+            android:paddingTop="10dp"
+            app:itemIconTint="#b1006a"
             app:menu="@menu/drawer_menu">
 
             <LinearLayout
