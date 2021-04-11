@@ -8,12 +8,12 @@
                 <group android:checkableBehavior="single">
                     <item
                         android:id="@+id/itemDrawerAdd"
-                        android:icon="@drawable/baseline_add_circle_24"
+                        android:icon="@drawable/outline_add_24"
                         android:title="Add" />
                     <item
                         android:id="@+id/itemDrawerDelete"
                         android:title="Delete"
-                        android:icon="@drawable/baseline_remove_circle_24"/>
+                        android:icon="@drawable/outline_remove_24"/>
 
                     <item
                         android:id="@+id/itemDrawerUpdate"
@@ -35,12 +35,24 @@
                     <item
                         android:id="@+id/itemDrawerHome"
                         android:title="Home"
-                        android:icon="@drawable/baseline_home_24"/>
+                        android:icon="@drawable/outline_cottage_24"/>
 
                     <item
                         android:id="@+id/itemDrawerInfo"
                         android:title="Info"
-                        android:icon="@drawable/baseline_info_24"/>
+                        android:icon="@drawable/outline_info_24"/>
+                    <item
+                        android:id="@+id/itemDrawerGoogleMap"
+                        android:title="Google Maps Maybe?"
+                        android:icon="@drawable/outline_location_on_24"/>
+                    <item
+                        android:id="@+id/itemDrawerLogIn"
+                        android:title="Login Maybe"
+                        android:icon="@drawable/outline_login_24"/>
+                    <item
+                        android:id="@+id/itemDrawerLogOut"
+                        android:title="Logout Maybe"
+                        android:icon="@drawable/outline_logout_24"/>
                 </group>
             </menu>
         </item>
