@@ -2,7 +2,7 @@
 <menu xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <group android:id="@+id/group1">
+    <group android:id="@+id/group1" android:checkableBehavior="single">
         <item android:id="@+id/itemDrawerQueries"
             android:title="Queries"
             android:icon="@drawable/ic_search_black_24dp"/>
@@ -16,12 +16,10 @@
                         android:icon="@drawable/outline_add_24"
                         android:title="Add Athlete" />
 
-
                     <item
                         android:id="@+id/itemDrawerDeleteAthlete"
                         android:title="Delete Athlete"
                         android:icon="@drawable/outline_remove_24"/>
-
 
                     <item
                         android:id="@+id/itemDrawerUpdateAthlete"
@@ -101,7 +99,6 @@
                     <item
                         android:id="@+id/itemDrawerHome"
                         android:title="Home"
-                        android:checked="true"
                         android:icon="@drawable/outline_cottage_24"/>
 
                     <item

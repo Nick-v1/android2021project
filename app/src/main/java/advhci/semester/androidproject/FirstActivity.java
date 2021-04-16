@@ -6,6 +6,7 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.FragmentManager;
 
+import android.content.ClipData;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -46,6 +47,7 @@ public class FirstActivity extends AppCompatActivity {
 
         fragmentManager = getSupportFragmentManager();
         fragmentManager.beginTransaction().replace(R.id.fragment_container, new HomeFragment()).commit();
+
     }
 
     private void openDrawer(View view) {
@@ -58,44 +60,103 @@ public class FirstActivity extends AppCompatActivity {
     }
 //drawer menu effects and coding here
     public boolean navItemSelected(MenuItem item){
-        if(item.getItemId() == R.id.itemDrawerAddSport){
 
+        if (item.getItemId() == R.id.itemDrawerQueries){
+            item.setChecked(true);
+            drawerLayout.closeDrawers();
+            fragmentManager.beginTransaction().replace(R.id.fragment_container, new queries()).commit();
+            return true;
+        }
+        else if(item.getItemId() == R.id.itemDrawerAddAthlete){
             item.setChecked(true);
             drawerLayout.closeDrawers();
 
-            fragmentManager = getSupportFragmentManager();
+            return true;
+        }
+
+        else if(item.getItemId() == R.id.itemDrawerDeleteAthlete){
+            item.setChecked(true);
+            drawerLayout.closeDrawers();
+
+            return true;
+        }
+
+        else if (item.getItemId() == R.id.itemDrawerUpdateAthlete){
+            item.setChecked(true);
+            drawerLayout.closeDrawers();
+            //
+            return true;
+        }
+        else if (item.getItemId() == R.id.itemDrawerAddTeam){
+            item.setChecked(true);
+            drawerLayout.closeDrawers();
+            //
+            return true;
+        }
+        else if (item.getItemId() == R.id.itemDrawerDeleteTeam){
+            item.setChecked(true);
+            drawerLayout.closeDrawers();
+            //
+            return true;
+        }
+        else if (item.getItemId() == R.id.itemDrawerUpdateTeam){
+            item.setChecked(true);
+            drawerLayout.closeDrawers();
+            //
+            return true;
+        }
+        else if(item.getItemId() == R.id.itemDrawerAddSport){
+            item.setChecked(true);
+            drawerLayout.closeDrawers();
+
             fragmentManager.beginTransaction().replace(R.id.fragment_container, new InsertSportFragment()).commit();
+            // code here
+            return true;
+        }
+        else if (item.getItemId() == R.id.itemDrawerDeleteSport){
+            item.setChecked(true);
+            drawerLayout.closeDrawers();
+
+            return true;
+        }
+        else if (item.getItemId() == R.id.itemDrawerUpdateSport){
+            item.setChecked(true);
+            drawerLayout.closeDrawers();
+
+            return true;
+        }
+        else if(item.getItemId() == R.id.itemDrawerAddGame){
+            item.setChecked(true);
+            drawerLayout.closeDrawers();
 
             // code here
             return true;
-        }else if (item.getItemId() == R.id.itemDrawerDeleteSport){
+        }
+        else if (item.getItemId() == R.id.itemDrawerDeleteGame){
             item.setChecked(true);
             drawerLayout.closeDrawers();
-            //
+
             return true;
-        } else if (item.getItemId() == R.id.itemDrawerHome){
+        }
+        else if (item.getItemId() == R.id.itemDrawerUpdateGame){
             item.setChecked(true);
             drawerLayout.closeDrawers();
-            fragmentManager = getSupportFragmentManager();
+
+            return true;
+        }
+        else if (item.getItemId() == R.id.itemDrawerHome){
+            item.setChecked(true);
+            drawerLayout.closeDrawers();
             fragmentManager.beginTransaction().replace(R.id.fragment_container, new HomeFragment()).commit();
-            //
             return true;
-        } else if (item.getItemId() == R.id.itemDrawerInfo){
+        }
+        else if (item.getItemId() == R.id.itemDrawerInfo){
             item.setChecked(true);
             drawerLayout.closeDrawers();
             //
             return true;
-        } else if (item.getItemId() == R.id.itemDrawerQueries){
-            item.setChecked(true);
-            drawerLayout.closeDrawers();
-            //
-            return true;
-        } else if (item.getItemId() == R.id.itemDrawerUpdateAthlete){
-            item.setChecked(true);
-            drawerLayout.closeDrawers();
-            //
-            return true;
-        } else if (item.getItemId() == R.id.ExitAppDrawer){
+        }
+        else if (item.getItemId() == R.id.ExitAppDrawer){
             finish();
             Toast.makeText(getApplicationContext(), "Exited App", Toast.LENGTH_SHORT).show();
         }
