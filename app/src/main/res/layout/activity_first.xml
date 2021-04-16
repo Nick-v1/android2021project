@@ -7,85 +7,81 @@
     tools:context=".FirstActivity">
 
     <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="300dp"
-        android:layout_marginStart="25dp"
+        android:id="@+id/fragment_container"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:background="#ffc77d"
-        >
-
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="fragment on activity here" />
-
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Choose an action from drawer menu" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
     </FrameLayout>
 
     <androidx.drawerlayout.widget.DrawerLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/drawerLayout" tools:openDrawer="start">
+        android:id="@+id/drawerLayout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:openDrawer="false" >
 
 
-            <androidx.coordinatorlayout.widget.CoordinatorLayout
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fitsSystemWindows="true">
+
+            <com.google.android.material.appbar.AppBarLayout
+                style="@style/Widget.MaterialComponents.AppBarLayout.PrimarySurface"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:fitsSystemWindows="true">
 
-                <com.google.android.material.appbar.AppBarLayout
+                <com.google.android.material.appbar.MaterialToolbar
+                    android:id="@+id/topAppBar"
+                    style="@style/Widget.MaterialComponents.Toolbar.PrimarySurface"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    style="@style/Widget.MaterialComponents.AppBarLayout.PrimarySurface"
-                    android:fitsSystemWindows="true">
+                    android:layout_height="?attr/actionBarSize"
+                    android:background="@android:color/transparent"
+                    android:elevation="0dp"
+                    app:menu="@menu/app_bar_menu"
+                    app:navigationIcon="@drawable/outline_menu_24"
+                    app:subtitle="Logged in/out"
+                    app:title="Menu Drawer App" />
+                <!-- subtitle can be used to show if a user is logged in or not -->
+            </com.google.android.material.appbar.AppBarLayout>
 
-                    <com.google.android.material.appbar.MaterialToolbar
-                        android:id="@+id/topAppBar"
-                        android:layout_width="match_parent"
-                        android:layout_height="?attr/actionBarSize"
-                        app:title="Main Page"
-                        app:subtitle="Logged in/out"
-                        app:navigationIcon="@drawable/outline_menu_24"
-                        style="@style/Widget.MaterialComponents.Toolbar.PrimarySurface"
-                        android:background="@android:color/transparent"
-                        app:menu="@menu/app_bar_menu"
-                        android:elevation="0dp" />
-<!-- subtitle can be used to show if a user is logged in or not -->
-                </com.google.android.material.appbar.AppBarLayout>
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
-            </androidx.coordinatorlayout.widget.CoordinatorLayout>
         <com.google.android.material.navigation.NavigationView
+            android:scrollbars="vertical"
             android:id="@+id/NavMenuView"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_gravity="start"
-            android:backgroundTint="#eee6ff"
+            android:background="@drawable/side_nav_bar"
+            android:fitsSystemWindows="true"
             android:paddingTop="10dp"
-            app:itemIconTint="#b1006a"
-            app:menu="@menu/drawer_menu"
             app:headerLayout="@layout/header_navigation_drawer"
-            android:fitsSystemWindows="true">
+            app:itemIconTint="#b1006a"
+            app:menu="@menu/drawer_menu">
 
-            <LinearLayout
+
+           <LinearLayout
+               android:id="@+id/spacer_to_bottom"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom"
                 android:orientation="vertical"
                 android:padding="16dp">
 
-                <TextView
-                    android:id="@+id/Exit"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="25dp"
-                    android:text="Exit App"
-                    android:textStyle="bold" />
+               <include layout="@layout/nav_footer"/>
+
             </LinearLayout>
+
         </com.google.android.material.navigation.NavigationView>
 
     </androidx.drawerlayout.widget.DrawerLayout>
