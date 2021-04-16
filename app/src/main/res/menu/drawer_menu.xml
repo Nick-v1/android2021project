@@ -3,38 +3,105 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <group android:id="@+id/group1">
-        <item android:title="App functions">
+        <item android:id="@+id/itemDrawerQueries"
+            android:title="Queries"
+            android:icon="@drawable/ic_search_black_24dp"/>
+
+        <item android:title="Athlete">
             <menu>
                 <group android:checkableBehavior="single">
+
                     <item
-                        android:id="@+id/itemDrawerAdd"
+                        android:id="@+id/itemDrawerAddAthlete"
                         android:icon="@drawable/outline_add_24"
-                        android:title="Add" />
+                        android:title="Add Athlete" />
+
+
                     <item
-                        android:id="@+id/itemDrawerDelete"
-                        android:title="Delete"
+                        android:id="@+id/itemDrawerDeleteAthlete"
+                        android:title="Delete Athlete"
                         android:icon="@drawable/outline_remove_24"/>
 
-                    <item
-                        android:id="@+id/itemDrawerUpdate"
-                        android:title="Update"
-                        android:icon="@drawable/outline_update_24"/>
 
                     <item
-                         android:id="@+id/itemDrawerQueries"
-                         android:title="Queries"
-                        android:icon="@drawable/ic_search_black_24dp"/>
+                        android:id="@+id/itemDrawerUpdateAthlete"
+                        android:title="Update Athlete"
+                        android:icon="@drawable/outline_update_24"/>
+
                 </group>
             </menu>
         </item>
     </group>
     <group android:id="@+id/group2">
-        <item android:title="Least used">
+        <item android:title="Team">
+            <menu>
+                <group android:checkableBehavior="single">
+                    <item
+                        android:id="@+id/itemDrawerAddTeam"
+                        android:icon="@drawable/outline_add_24"
+                        android:title="Add Team" />
+                    <item
+                        android:id="@+id/itemDrawerDeleteTeam"
+                        android:title="Delete Team"
+                        android:icon="@drawable/outline_remove_24"/>
+                    <item
+                        android:id="@+id/itemDrawerUpdateTeam"
+                        android:title="Update Team"
+                        android:icon="@drawable/outline_update_24"/>
+
+                </group>
+            </menu>
+        </item>
+    </group>
+    <group android:id="@+id/group3">
+        <item android:title="Sport">
+            <menu>
+                <group android:checkableBehavior="single">
+                    <item
+                        android:id="@+id/itemDrawerAddSport"
+                        android:icon="@drawable/outline_add_24"
+                        android:title="Add Sport" />
+                    <item
+                        android:id="@+id/itemDrawerDeleteSport"
+                        android:title="Delete Sport"
+                        android:icon="@drawable/outline_remove_24"/>
+                    <item
+                        android:id="@+id/itemDrawerUpdateSport"
+                        android:title="Update Sport"
+                        android:icon="@drawable/outline_update_24"/>
+                </group>
+            </menu>
+        </item>
+    </group>
+    <group android:id="@+id/group4">
+        <item android:title="Game">
+            <menu>
+                <group android:checkableBehavior="single">
+                    <item
+                        android:id="@+id/itemDrawerAddGame"
+                        android:icon="@drawable/outline_add_24"
+                        android:title="Add Game" />
+                    <item
+                        android:id="@+id/itemDrawerDeleteGame"
+                        android:title="Delete Game"
+                        android:icon="@drawable/outline_remove_24"/>
+                    <item
+                        android:id="@+id/itemDrawerUpdateGame"
+                        android:title="Update Game"
+                        android:icon="@drawable/outline_update_24"/>
+
+                </group>
+            </menu>
+        </item>
+    </group>
+    <group android:id="@+id/group5">
+        <item android:title="Extras">
             <menu>
                 <group android:checkableBehavior="single">
                     <item
                         android:id="@+id/itemDrawerHome"
                         android:title="Home"
+                        android:checked="true"
                         android:icon="@drawable/outline_cottage_24"/>
 
                     <item
@@ -53,9 +120,13 @@
                         android:id="@+id/itemDrawerLogOut"
                         android:title="Logout Maybe"
                         android:icon="@drawable/outline_logout_24"/>
+                    <item
+                        android:id="@+id/ExitAppDrawer"
+                        android:icon="@drawable/baseline_power_settings_new_24"
+                        android:title="Exit App"/>
+
                 </group>
             </menu>
         </item>
     </group>
-
 </menu>

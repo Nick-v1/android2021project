@@ -4,53 +4,37 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/drawerLayout"
     tools:context=".FirstActivity">
 
-    <include layout="@layout/app_bar"/>
+
+
+    <include layout="@layout/app_bar" />
 
     <FrameLayout
         android:id="@+id/fragment_container"
-        android:layout_width="0dp"
-        android:layout_height="0dp">
+        android:layout_width="match_parent"
+        android:layout_marginTop="105dp"
+        android:layout_height="match_parent"/>
 
-    </FrameLayout>
 
-    <androidx.drawerlayout.widget.DrawerLayout
-        android:id="@+id/drawerLayout"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:openDrawer="end" >
 
-        <com.google.android.material.navigation.NavigationView
-            android:scrollbars="vertical"
-            android:id="@+id/NavMenuView"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_gravity="start"
-            android:background="@drawable/side_nav_bar"
-            android:fitsSystemWindows="true"
-            android:paddingTop="10dp"
-            app:headerLayout="@layout/header_navigation_drawer"
-            app:itemIconTint="#b1006a"
-            app:menu="@menu/drawer_menu">
+    <com.google.android.material.navigation.NavigationView
+         android:scrollbars="vertical"
+         android:id="@+id/NavMenuView"
+         android:layout_width="wrap_content"
+         android:layout_height="match_parent"
+         android:layout_gravity="start"
+         android:background="@drawable/side_nav_bar"
+         android:fitsSystemWindows="true"
+         android:paddingTop="10dp"
+         app:headerLayout="@layout/header_navigation_drawer"
+         app:itemIconTint="#b1006a"
+         app:menu="@menu/drawer_menu">
 
-           <LinearLayout
-               android:id="@+id/spacer_to_bottom"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom"
-                android:orientation="vertical"
-                android:padding="16dp">
 
-               <include layout="@layout/nav_footer"/>
 
-            </LinearLayout>
+    </com.google.android.material.navigation.NavigationView>
 
-        </com.google.android.material.navigation.NavigationView>
 
-    </androidx.drawerlayout.widget.DrawerLayout>
 </androidx.drawerlayout.widget.DrawerLayout>
