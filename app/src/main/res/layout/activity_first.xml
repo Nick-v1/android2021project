@@ -1,20 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".FirstActivity">
 
+    <include layout="@layout/app_bar"/>
+
     <FrameLayout
         android:id="@+id/fragment_container"
         android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:background="#ffc77d"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_height="0dp">
 
     </FrameLayout>
 
@@ -26,35 +23,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:openDrawer="false" >
-
-
-        <androidx.coordinatorlayout.widget.CoordinatorLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:fitsSystemWindows="true">
-
-            <com.google.android.material.appbar.AppBarLayout
-                style="@style/Widget.MaterialComponents.AppBarLayout.PrimarySurface"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fitsSystemWindows="true">
-
-                <com.google.android.material.appbar.MaterialToolbar
-                    android:id="@+id/topAppBar"
-                    style="@style/Widget.MaterialComponents.Toolbar.PrimarySurface"
-                    android:layout_width="match_parent"
-                    android:layout_height="?attr/actionBarSize"
-                    android:background="@android:color/transparent"
-                    android:elevation="0dp"
-                    app:menu="@menu/app_bar_menu"
-                    app:navigationIcon="@drawable/outline_menu_24"
-                    app:subtitle="Logged in/out"
-                    app:title="Menu Drawer App" />
-                <!-- subtitle can be used to show if a user is logged in or not -->
-            </com.google.android.material.appbar.AppBarLayout>
-
-        </androidx.coordinatorlayout.widget.CoordinatorLayout>
+        tools:openDrawer="end" >
 
         <com.google.android.material.navigation.NavigationView
             android:scrollbars="vertical"
@@ -68,7 +37,6 @@
             app:headerLayout="@layout/header_navigation_drawer"
             app:itemIconTint="#b1006a"
             app:menu="@menu/drawer_menu">
-
 
            <LinearLayout
                android:id="@+id/spacer_to_bottom"
@@ -85,4 +53,4 @@
         </com.google.android.material.navigation.NavigationView>
 
     </androidx.drawerlayout.widget.DrawerLayout>
-</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.drawerlayout.widget.DrawerLayout>
