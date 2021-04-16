@@ -70,39 +70,39 @@ public class FirstActivity extends AppCompatActivity {
         else if(item.getItemId() == R.id.itemDrawerAddAthlete){
             item.setChecked(true);
             drawerLayout.closeDrawers();
-
+            fragmentManager.beginTransaction().replace(R.id.fragment_container, new InsertAthleteFragment()).commit();
             return true;
         }
 
         else if(item.getItemId() == R.id.itemDrawerDeleteAthlete){
             item.setChecked(true);
             drawerLayout.closeDrawers();
-
+            fragmentManager.beginTransaction().replace(R.id.fragment_container, new DeleteAthleteFragment()).commit();
             return true;
         }
 
         else if (item.getItemId() == R.id.itemDrawerUpdateAthlete){
             item.setChecked(true);
             drawerLayout.closeDrawers();
-            //
+            fragmentManager.beginTransaction().replace(R.id.fragment_container, new UpdateAthleteFragment()).commit();
             return true;
         }
         else if (item.getItemId() == R.id.itemDrawerAddTeam){
             item.setChecked(true);
             drawerLayout.closeDrawers();
-            //
+            fragmentManager.beginTransaction().replace(R.id.fragment_container, new InsertTeamFragment()).commit();
             return true;
         }
         else if (item.getItemId() == R.id.itemDrawerDeleteTeam){
             item.setChecked(true);
             drawerLayout.closeDrawers();
-            //
+            fragmentManager.beginTransaction().replace(R.id.fragment_container, new DeleteTeamFragment()).commit();
             return true;
         }
         else if (item.getItemId() == R.id.itemDrawerUpdateTeam){
             item.setChecked(true);
             drawerLayout.closeDrawers();
-            //
+            fragmentManager.beginTransaction().replace(R.id.fragment_container, new UpdateTeamFragment()).commit();
             return true;
         }
         else if(item.getItemId() == R.id.itemDrawerAddSport){
@@ -116,13 +116,13 @@ public class FirstActivity extends AppCompatActivity {
         else if (item.getItemId() == R.id.itemDrawerDeleteSport){
             item.setChecked(true);
             drawerLayout.closeDrawers();
-
+            fragmentManager.beginTransaction().replace(R.id.fragment_container, new DeleteSportFragment()).commit();
             return true;
         }
         else if (item.getItemId() == R.id.itemDrawerUpdateSport){
             item.setChecked(true);
             drawerLayout.closeDrawers();
-
+            fragmentManager.beginTransaction().replace(R.id.fragment_container, new UpdateSportFragment()).commit();
             return true;
         }
         else if(item.getItemId() == R.id.itemDrawerAddGame){

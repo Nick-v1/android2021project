@@ -3,8 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".InsertSportFragment"
+    tools:context=".UpdateSportFragment"
     android:orientation="vertical">
 
     <TextView
@@ -12,86 +11,74 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_margin="50dp"
-        android:text="INSERT SPORT"
+        android:text="Update Sport Info"
         android:textAlignment="center"
         android:textSize="24sp"
         android:textStyle="bold" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/InputLayout1AddSport"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        app:boxStrokeColor="#5C71DA">
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/textInputEditText1AddSport"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
-            android:inputType="number"
-            android:hint="Sport ID" />
+            android:hint="Sport ID to update"
+            android:inputType="number" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout2AddSport"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        app:boxStrokeColor="#5C71DA">
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/textInputEditText2AddSport"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
             android:hint="Sport Name" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
-<TextView
-    android:layout_margin="16dp"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:text="Sport Type:"
-    android:textStyle="bold"/>
-     <Spinner
-            android:id="@+id/spinner1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp">
-
-     </Spinner>
-
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout3AddSport"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        app:boxStrokeColor="#5C71DA">
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/textInputEditText3AddSport"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
-            android:hint="Sport Gender" />
+            android:hint="Type" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
-    <Button
-        android:id="@+id/submitsport"
+    <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginTop="90dp"
-        android:text="Submit" />
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp">
 
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Gender" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Update Sport Info"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"/>
 </LinearLayout>
