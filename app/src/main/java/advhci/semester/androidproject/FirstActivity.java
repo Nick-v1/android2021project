@@ -121,7 +121,7 @@ public class FirstActivity extends AppCompatActivity {
             return true;
         }
         else if (item.getItemId() == R.id.itemDrawerInfo){
-
+//info fragment fragmentManager.beginTransaction().replace(R.id.fragment_container, new InfoFragment()).commit();
             return true;
         }
         else if (item.getItemId() == R.id.ExitAppDrawer){
