@@ -7,6 +7,8 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 
 
 public class UpdateAthleteFragment extends Fragment {
@@ -16,13 +18,20 @@ public class UpdateAthleteFragment extends Fragment {
         // Required empty public constructor
     }
 
-
-
+    Spinner spinnerGender;
+    ArrayAdapter<CharSequence> adapter;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_update_athlete, container, false);
+        View view = inflater.inflate(R.layout.fragment_update_athlete, container, false);
+
+        spinnerGender = view.findViewById(R.id.updateAthleteGender);
+        adapter = ArrayAdapter.createFromResource(getContext(), R.array.gender, R.layout.support_simple_spinner_dropdown_item);
+        adapter.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);
+        spinnerGender.setAdapter(adapter);
+
+        return view;
     }
 }

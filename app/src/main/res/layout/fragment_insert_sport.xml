@@ -35,56 +35,59 @@
 
     </com.google.android.material.textfield.TextInputLayout>
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout2AddSport"
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:textStyle="bold"
+        android:layout_marginRight="16dp"
         android:layout_marginTop="16dp"
-        app:boxStrokeColor="#5C71DA">
+        android:text="Sport Name" />
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/textInputEditText2AddSport"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
-            android:hint="Sport Name" />
-
-    </com.google.android.material.textfield.TextInputLayout>
-
-<TextView
-    android:layout_margin="16dp"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:text="Sport Type:"
-    android:textStyle="bold"/>
-     <Spinner
-            android:id="@+id/spinner1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp">
-
-     </Spinner>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout3AddSport"
+    <Spinner
+        android:id="@+id/insertSportnameSpinner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:background="#DAD5D5"
+        android:spinnerMode="dialog" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:textStyle="bold"
+        android:layout_marginRight="16dp"
         android:layout_marginTop="16dp"
-        app:boxStrokeColor="#5C71DA">
+        android:text="Select Gender" />
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/textInputEditText3AddSport"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
-            android:hint="Sport Gender" />
+    <Spinner
+        android:id="@+id/insertGenderSpinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:background="#DAD5D5"
+        android:spinnerMode="dialog" />
 
-    </com.google.android.material.textfield.TextInputLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:textStyle="bold"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="16dp"
+        android:text="Select Type" />
 
+    <Spinner
+        android:id="@+id/insertSportSpinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:background="#DAD5D5"
+        android:spinnerMode="dialog" />
     <Button
         android:id="@+id/submitsport"
         android:layout_width="match_parent"
@@ -93,5 +96,7 @@
         android:layout_marginRight="16dp"
         android:layout_marginTop="90dp"
         android:text="Submit" />
+
+
 
 </LinearLayout>

@@ -5,6 +5,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.FragmentManager;
+import androidx.room.Room;
 
 import android.content.ClipData;
 import android.os.Bundle;
@@ -23,8 +24,8 @@ public class FirstActivity extends AppCompatActivity {
     DrawerLayout drawerLayout;
     NavigationView navigationView;
     Toolbar topAppBar;
-    public static FragmentManager fragmentManager;
-
+    FragmentManager fragmentManager;
+    public static roomDb roomAPIdatabase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,13 +41,20 @@ public class FirstActivity extends AppCompatActivity {
         View toolBarExitApp = findViewById(R.id.appbarExit);
         toolBarExitApp.setOnClickListener(this::endApp);              //toolbar exit button
 
-
+        roomAPIdatabase = Room.databaseBuilder(getApplicationContext(), roomDb.class, "SportsDB").allowMainThreadQueries().build();
 
         topAppBar = findViewById(R.id.topAppBar);          //drawer menu button
         topAppBar.setNavigationOnClickListener(this::openDrawer);
 
         fragmentManager = getSupportFragmentManager();
-        fragmentManager.beginTransaction().replace(R.id.fragment_container, new HomeFragment()).commit();
+
+        if(findViewById(R.id.fragment_container) != null){
+            if(savedInstanceState != null){
+                return;
+            }
+            fragmentManager.beginTransaction().add(R.id.fragment_container, new HomeFragment()).commit();
+        }
+
 
     }
 
