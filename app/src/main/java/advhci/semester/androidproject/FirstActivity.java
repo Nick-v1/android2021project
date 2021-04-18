@@ -130,6 +130,7 @@ public class FirstActivity extends AppCompatActivity {
         }
         else{
             item.setChecked(false);
+            return false;
         }
 
         return false;
