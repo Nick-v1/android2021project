@@ -47,14 +47,14 @@ public class queries extends Fragment {
     }
 
     private void results(View view) {
-        List<Sports> sports = FirstActivity.roomAPIdatabase.myDaoAdmin().getSports();
+        List<Sports> sports = FirstActivity.roomDbBuilder.myDaoAdmin().getSports();
         String result ="";
         for (Sports sport: sports) {
             int code = sport.getId();
             String name = sport.getName();
             String type = sport.getType();
             String gender = sport.getGender();
-            result = result + "\nId: " + code + "\nName: " + name + "\nType: " + type +  "\nSport gender: "+gender + "\nType:"+type + "\n";
+            result = result + "\nId: " + code + "\nName: " + name + "\nType: " + type +  "\nSport gender: "+gender + "\n";
         }
         textView.setText(result);
     }

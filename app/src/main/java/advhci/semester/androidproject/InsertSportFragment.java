@@ -59,13 +59,12 @@ public class InsertSportFragment extends Fragment {
     }
 
     private void addToDb(View view) {
-        int temp_var_sportid = 0;
+        int var_sportid = 0;
         try {
-            temp_var_sportid = Integer.parseInt(editText1.getText().toString());
+            var_sportid = Integer.parseInt(editText1.getText().toString());
         } catch (Exception e){
             Toast.makeText(getActivity(), ""+e, Toast.LENGTH_SHORT).show();
         }
-        int var_sportid = temp_var_sportid;
         String Var_Name = spinnerSportname.getSelectedItem().toString();
         String Var_Type = spinnerType.getSelectedItem().toString();
         String Var_Gender = spinnerGender.getSelectedItem().toString();
@@ -76,7 +75,7 @@ public class InsertSportFragment extends Fragment {
             sport.setName(Var_Name);
             sport.setType(Var_Type);
             sport.setGender(Var_Gender);
-            FirstActivity.roomAPIdatabase.myDaoAdmin().addSport(sport);
+            FirstActivity.roomDbBuilder.myDaoAdmin().addSport(sport);
             Toast.makeText(getActivity(), "Added Sport", Toast.LENGTH_SHORT).show();
         } catch (Exception e){
             Toast.makeText(getActivity(), "Taken Sport ID", Toast.LENGTH_SHORT).show();

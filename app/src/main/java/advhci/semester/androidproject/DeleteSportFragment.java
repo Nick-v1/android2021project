@@ -41,12 +41,11 @@ public class DeleteSportFragment extends Fragment {
             var_sportid = Integer.parseInt(deleteid.getText().toString());
         } catch (Exception e){
             Toast.makeText(getActivity(), "Select a sport id to delete", Toast.LENGTH_SHORT).show();
-            return;
         }
 
             Sports sport = new Sports();
             sport.setId(var_sportid);
-            FirstActivity.roomAPIdatabase.myDaoAdmin().deleteSport(sport);
+            FirstActivity.roomDbBuilder.myDaoAdmin().deleteSport(sport);
             Toast.makeText(getActivity(), "Sport deleted", Toast.LENGTH_SHORT).show();
             deleteid.setText(null);
 

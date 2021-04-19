@@ -24,6 +24,7 @@
         android:layout_marginLeft="20dp">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/insertAthleteidtext"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Athlete ID"
@@ -39,6 +40,7 @@
         android:layout_marginLeft="20dp">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/insertAthleteFirstName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="First Name" />
@@ -53,6 +55,7 @@
         android:layout_marginLeft="20dp">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/insertAthleteLastName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Last Name" />
@@ -67,6 +70,7 @@
         android:layout_marginLeft="20dp">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/insertAthleteCity"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="City" />
@@ -81,6 +85,7 @@
         android:layout_marginLeft="20dp">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/insertAthleteCountry"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="County" />
@@ -95,8 +100,10 @@
         android:layout_marginLeft="20dp">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/insertAthleteSportid"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:inputType="number"
             android:hint="Sport ID" />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -110,10 +117,11 @@
 
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/insertAthleteBirthdate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Birthdate"
-            android:inputType="date" />
+            android:inputType="text" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -133,6 +141,7 @@
         android:layout_marginLeft="20dp"
         android:spinnerMode="dialog"/>
     <Button
+        android:id="@+id/insertAthleteButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Add athlete"

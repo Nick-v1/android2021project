@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_margin="50dp"
+        android:layout_margin="45dp"
         android:text="Update athlete info"
         android:textAlignment="center"
         android:textSize="24sp"
@@ -24,6 +24,7 @@
         android:layout_marginLeft="20dp">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/updateAthleteId"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Athlete ID to update"
@@ -39,6 +40,7 @@
         android:layout_marginLeft="20dp">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/updateAthleteName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="First Name" />
@@ -53,6 +55,7 @@
         android:layout_marginLeft="20dp">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/updateAthleteLastName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Last Name" />
@@ -67,6 +70,7 @@
         android:layout_marginLeft="20dp">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/updateAthleteCity"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="City" />
@@ -81,6 +85,7 @@
         android:layout_marginLeft="20dp">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/updateAthleteCountry"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="County" />
@@ -95,8 +100,10 @@
         android:layout_marginLeft="20dp">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/updateAthleteSportID"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:inputType="number"
             android:hint="Sport ID" />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -108,34 +115,36 @@
         android:layout_marginRight="20dp"
         android:layout_marginLeft="20dp">
 
-
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/updateAthleteBirthdate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Birthdate"
-            android:inputType="date" />
+            android:inputType="text" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Gender:"
-        android:paddingLeft="20dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginLeft="20dp"/>
+        android:layout_marginLeft="20dp"
+        android:textStyle="bold"
+        android:layout_marginRight="16dp"
+        android:text="Gender" />
     <Spinner
         android:id="@+id/updateAthleteGender"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginRight="20dp"
         android:layout_marginLeft="20dp"
+        android:background="#DAD5D5"
         android:spinnerMode="dialog"/>
     <Button
+        android:id="@+id/updateAthleteButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Update athlete info"
+        android:layout_marginTop="10dp"
         android:layout_marginRight="20dp"
         android:layout_marginLeft="20dp"/>
 

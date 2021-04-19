@@ -8,7 +8,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.Spinner;
+import android.widget.TextView;
+import android.widget.Toast;
 
 
 public class InsertAthleteFragment extends Fragment {
@@ -20,7 +23,8 @@ public class InsertAthleteFragment extends Fragment {
 
     Spinner spinnerGender;
     ArrayAdapter<CharSequence> adapter;
-
+    Button button;
+    TextView textid, textname, textlastname, textcity, textcountry, textsportid, textbirthdate;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -33,6 +37,56 @@ public class InsertAthleteFragment extends Fragment {
         adapter.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);
         spinnerGender.setAdapter(adapter);
 
+        textid = view.findViewById(R.id.insertAthleteidtext);
+        textname = view.findViewById(R.id.insertAthleteFirstName);
+        textlastname = view.findViewById(R.id.insertAthleteLastName);
+        textcity = view.findViewById(R.id.insertAthleteCity);
+        textcountry = view.findViewById(R.id.insertAthleteCountry);
+        textsportid = view.findViewById(R.id.insertAthleteSportid);
+        textbirthdate = view.findViewById(R.id.insertAthleteBirthdate);
+
+        button = view.findViewById(R.id.insertAthleteButton);
+        button.setOnClickListener(this::addAthlete);
+
         return view;
+    }
+
+    private void addAthlete(View view){
+
+       int var_athleteid = 0;
+       try{
+           var_athleteid = Integer.parseInt(textid.getText().toString());
+       } catch (Exception e){
+           Toast.makeText(getActivity(), ""+e, Toast.LENGTH_SHORT).show();
+       }
+       String var_athletename = textname.getText().toString();
+       String var_athletelastname = textlastname.getText().toString();
+       String var_athletecity = textcity.getText().toString();
+       String var_athletecountry = textcountry.getText().toString();
+       int var_athlete_sport_id = 0;
+       try {
+           var_athlete_sport_id = Integer.parseInt(textsportid.getText().toString());
+       }catch (Exception e){
+           Toast.makeText(getActivity(), ""+e, Toast.LENGTH_SHORT).show();
+       }
+       String var_athlete_birthdate = textbirthdate.getText().toString();
+       String var_athletegender = spinnerGender.getSelectedItem().toString();
+
+       try{
+           Athletes athlete = new Athletes();
+           athlete.setAthlete_id(var_athleteid);
+           athlete.setFirstname(var_athletename);
+           athlete.setLastname(var_athletelastname);
+           athlete.setCity(var_athletecity);
+           athlete.setCountry(var_athletecountry);
+           athlete.setSport_id(var_athlete_sport_id);
+           athlete.setBirthdate(var_athlete_birthdate);
+           athlete.setGender(var_athletegender);
+           FirstActivity.roomDbBuilder.myDaoAdmin().addAthlete(athlete);
+           Toast.makeText(getActivity(), "Added athlete", Toast.LENGTH_SHORT).show();
+       } catch (Exception e){
+           Toast.makeText(getActivity(), "Could not be added\nPossible Reasons: Athlete with same id exists or sport id does not exist",Toast.LENGTH_LONG).show();
+       }
+
     }
 }

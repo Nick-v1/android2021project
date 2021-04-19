@@ -6,7 +6,7 @@ import androidx.room.ForeignKey;
 
 import java.util.Date;
 
-@Entity (tableName = "athletes",
+@Entity (tableName = "athlete",
         primaryKeys = {"athlete_id", "sid"},
         foreignKeys = {
         @ForeignKey(entity = Sports.class,
@@ -31,6 +31,16 @@ public class Athletes {
     private int sport_id;
 
     private String birthdate;
+
+    private String gender;
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
 
     public int getAthlete_id() {
         return athlete_id;

@@ -67,14 +67,17 @@ public class UpdateSportFragment extends Fragment {
         String var_sportype = spinnerType.getSelectedItem().toString();
         String var_sportgender = spinnerGender.getSelectedItem().toString();
 
-        Sports sport = new Sports();
-        sport.setId(var_sportid);
-        sport.setName(var_sportname);
-        sport.setType(var_sportype);
-        sport.setGender(var_sportgender);
-        FirstActivity.roomAPIdatabase.myDaoAdmin().updateSport(sport);
-        Toast.makeText(getActivity(), "One record updated!", Toast.LENGTH_LONG).show();
-
+        try {
+            Sports sport = new Sports();
+            sport.setId(var_sportid);
+            sport.setName(var_sportname);
+            sport.setType(var_sportype);
+            sport.setGender(var_sportgender);
+            FirstActivity.roomDbBuilder.myDaoAdmin().updateSport(sport);
+            Toast.makeText(getActivity(), "One record updated!", Toast.LENGTH_LONG).show();
+        } catch (Exception e){
+            Toast.makeText(getActivity(), ""+e, Toast.LENGTH_LONG).show();
+        }
         editText1.setText("");
 
 

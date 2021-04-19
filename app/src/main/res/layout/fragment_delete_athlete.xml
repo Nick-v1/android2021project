@@ -18,15 +18,16 @@
         android:text="Delete Athlete:" />
 
     <EditText
+        android:id="@+id/deleteAthleteid"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Athlete number to delete"
+        android:hint="Athlete id to delete"
         android:layout_margin="20dp"
         android:ems="10"
         android:inputType="number" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/deleteAthleteButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"

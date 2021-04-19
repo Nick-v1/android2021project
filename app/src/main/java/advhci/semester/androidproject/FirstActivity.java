@@ -7,14 +7,9 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.FragmentManager;
 import androidx.room.Room;
 
-import android.content.ClipData;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Adapter;
-import android.widget.ArrayAdapter;
-import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
@@ -25,7 +20,7 @@ public class FirstActivity extends AppCompatActivity {
     NavigationView navigationView;
     Toolbar topAppBar;
     FragmentManager fragmentManager;
-    public static roomDb roomAPIdatabase;
+    public static roomDb roomDbBuilder;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,7 +36,7 @@ public class FirstActivity extends AppCompatActivity {
         View toolBarExitApp = findViewById(R.id.appbarExit);
         toolBarExitApp.setOnClickListener(this::endApp);              //toolbar exit button
 
-        roomAPIdatabase = Room.databaseBuilder(getApplicationContext(), roomDb.class, "SportsDB").allowMainThreadQueries().build();
+        roomDbBuilder = Room.databaseBuilder(getApplicationContext(), roomDb.class, "DaTaBaSe").allowMainThreadQueries().build();
 
         topAppBar = findViewById(R.id.topAppBar);          //drawer menu button
         topAppBar.setNavigationOnClickListener(this::openDrawer);
