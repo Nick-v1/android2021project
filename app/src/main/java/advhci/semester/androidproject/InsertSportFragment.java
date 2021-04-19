@@ -76,7 +76,7 @@ public class InsertSportFragment extends Fragment {
             sport.setName(Var_Name);
             sport.setType(Var_Type);
             sport.setGender(Var_Gender);
-            FirstActivity.roomAPIdatabase.myDaoUser().addSport(sport);
+            FirstActivity.roomAPIdatabase.myDaoAdmin().addSport(sport);
             Toast.makeText(getActivity(), "Added Sport", Toast.LENGTH_SHORT).show();
         } catch (Exception e){
             Toast.makeText(getActivity(), "Taken Sport ID", Toast.LENGTH_SHORT).show();

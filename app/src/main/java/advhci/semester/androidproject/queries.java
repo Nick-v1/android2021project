@@ -47,7 +47,7 @@ public class queries extends Fragment {
     }
 
     private void results(View view) {
-        List<Sports> sports = FirstActivity.roomAPIdatabase.myDaoUser().getSports();
+        List<Sports> sports = FirstActivity.roomAPIdatabase.myDaoAdmin().getSports();
         String result ="";
         for (Sports sport: sports) {
             int code = sport.getId();

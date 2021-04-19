@@ -1,6 +1,5 @@
 package advhci.semester.androidproject;
 
-import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -47,7 +46,7 @@ public class DeleteSportFragment extends Fragment {
 
             Sports sport = new Sports();
             sport.setId(var_sportid);
-            FirstActivity.roomAPIdatabase.myDaoUser().deleteSport(sport);
+            FirstActivity.roomAPIdatabase.myDaoAdmin().deleteSport(sport);
             Toast.makeText(getActivity(), "Sport deleted", Toast.LENGTH_SHORT).show();
             deleteid.setText(null);
 

@@ -1,6 +1,5 @@
 package advhci.semester.androidproject;
 
-import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -8,7 +7,6 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Adapter;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -74,7 +72,7 @@ public class UpdateSportFragment extends Fragment {
         sport.setName(var_sportname);
         sport.setType(var_sportype);
         sport.setGender(var_sportgender);
-        FirstActivity.roomAPIdatabase.myDaoUser().updateSport(sport);
+        FirstActivity.roomAPIdatabase.myDaoAdmin().updateSport(sport);
         Toast.makeText(getActivity(), "One record updated!", Toast.LENGTH_LONG).show();
 
         editText1.setText("");
