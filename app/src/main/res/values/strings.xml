@@ -11,7 +11,7 @@
     <string-array name="queries_array">
         <item> 1. Show Sports </item>
         <item> 2. Show Athletes </item>
-        <item> 3. Show Sports </item>
+        <item> 3. Show Teams </item>
     </string-array>
 
     <string-array name="gender">

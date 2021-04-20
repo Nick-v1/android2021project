@@ -11,6 +11,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -26,19 +27,16 @@ public class queries extends Fragment {
     TextView QueryResultsText;
     Button bn;
 
-    //to be changed
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_queries, container, false);
 
-
         spinner = view.findViewById(R.id.Queryspinner);
         adapter = ArrayAdapter.createFromResource(getContext(), R.array.queries_array, R.layout.support_simple_spinner_dropdown_item);
         adapter.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
-
 
         QueryResultsText = view.findViewById(R.id.textViewQueryResult);
         bn = view.findViewById(R.id.buttonSearch);
@@ -47,6 +45,7 @@ public class queries extends Fragment {
         return view;
     }
 
+    //Query Results
     private void results(View view) {
 
         if (spinner.getSelectedItemPosition() == 0 ) {
@@ -57,11 +56,14 @@ public class queries extends Fragment {
                 String name = sport.getName();
                 String type = sport.getType();
                 String gender = sport.getGender();
+
                 result = result + "Id: " + code + "\nName: " + name + "\nType: " + type + "\nSport gender: " + gender + "\n\n";
+
+                Toast.makeText(getActivity(), "Total Sports: "+sports.size(), Toast.LENGTH_SHORT).show();
             }
             QueryResultsText.setText(result);
         }
-        else if (spinner.getSelectedItemPosition() == 2){
+        else if (spinner.getSelectedItemPosition() == 1){
             List<Athletes> athletes = FirstActivity.roomDbBuilder.myDaoAdmin().getAthletes();
             String result = "";
             for (Athletes ath : athletes){
@@ -76,9 +78,14 @@ public class queries extends Fragment {
 
                 result += "Id: " + athid + "\nFirst name: " + athname + "\nLast Name: " + athlastname + "\nCity: " + athcity + "\nCountry: " + athcountry + "\nSport id: " + athsportid + "\nBirthdate: "
                         + athbd + "\nGender: " + athgender + "\n\n";
+
+                Toast.makeText(getActivity(), "Total Sports: "+athletes.size(), Toast.LENGTH_SHORT).show();
             }
             QueryResultsText.setText(result);
         }
+        else
+            QueryResultsText.setText(null);
+
     }
 
 
