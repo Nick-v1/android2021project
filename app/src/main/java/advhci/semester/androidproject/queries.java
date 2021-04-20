@@ -79,7 +79,7 @@ public class queries extends Fragment {
                 result += "Id: " + athid + "\nFirst name: " + athname + "\nLast Name: " + athlastname + "\nCity: " + athcity + "\nCountry: " + athcountry + "\nSport id: " + athsportid + "\nBirthdate: "
                         + athbd + "\nGender: " + athgender + "\n\n";
 
-                Toast.makeText(getActivity(), "Total Sports: "+athletes.size(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "Total Athletes: "+athletes.size(), Toast.LENGTH_SHORT).show();
             }
             QueryResultsText.setText(result);
         }
