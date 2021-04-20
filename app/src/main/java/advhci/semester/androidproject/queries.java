@@ -23,9 +23,10 @@ public class queries extends Fragment {
 
     Spinner spinner;
     ArrayAdapter<CharSequence> adapter;
-    TextView textView;
+    TextView QueryResultsText;
     Button bn;
 
+    //to be changed
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -33,13 +34,13 @@ public class queries extends Fragment {
         View view = inflater.inflate(R.layout.fragment_queries, container, false);
 
 
-        spinner = view.findViewById(R.id.spinner);
+        spinner = view.findViewById(R.id.Queryspinner);
         adapter = ArrayAdapter.createFromResource(getContext(), R.array.queries_array, R.layout.support_simple_spinner_dropdown_item);
         adapter.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
 
 
-        textView = view.findViewById(R.id.textViewQueryResult);
+        QueryResultsText = view.findViewById(R.id.textViewQueryResult);
         bn = view.findViewById(R.id.buttonSearch);
         bn.setOnClickListener(this::results);
 
@@ -47,16 +48,37 @@ public class queries extends Fragment {
     }
 
     private void results(View view) {
-        List<Sports> sports = FirstActivity.roomDbBuilder.myDaoAdmin().getSports();
-        String result ="";
-        for (Sports sport: sports) {
-            int code = sport.getId();
-            String name = sport.getName();
-            String type = sport.getType();
-            String gender = sport.getGender();
-            result = result + "\nId: " + code + "\nName: " + name + "\nType: " + type +  "\nSport gender: "+gender + "\n";
+
+        if (spinner.getSelectedItemPosition() == 0 ) {
+            List<Sports> sports = FirstActivity.roomDbBuilder.myDaoAdmin().getSports();
+            String result = "";
+            for (Sports sport : sports) {
+                int code = sport.getId();
+                String name = sport.getName();
+                String type = sport.getType();
+                String gender = sport.getGender();
+                result = result + "Id: " + code + "\nName: " + name + "\nType: " + type + "\nSport gender: " + gender + "\n\n";
+            }
+            QueryResultsText.setText(result);
         }
-        textView.setText(result);
+        else if (spinner.getSelectedItemPosition() == 2){
+            List<Athletes> athletes = FirstActivity.roomDbBuilder.myDaoAdmin().getAthletes();
+            String result = "";
+            for (Athletes ath : athletes){
+                int athid = ath.getAthlete_id();
+                String athname = ath.getFirstname();
+                String athlastname = ath.getLastname();
+                String athcity = ath.getCity();
+                String athcountry = ath.getCountry();
+                int athsportid = ath.getSport_id();
+                String athbd = ath.getBirthdate();
+                String athgender = ath.getGender();
+
+                result += "Id: " + athid + "\nFirst name: " + athname + "\nLast Name: " + athlastname + "\nCity: " + athcity + "\nCountry: " + athcountry + "\nSport id: " + athsportid + "\nBirthdate: "
+                        + athbd + "\nGender: " + athgender + "\n\n";
+            }
+            QueryResultsText.setText(result);
+        }
     }
 
 
