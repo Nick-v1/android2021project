@@ -1,9 +1,11 @@
 package advhci.semester.androidproject;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,15 +15,19 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import java.util.List;
+
 
 public class UpdateSportFragment extends Fragment {
 
-    EditText editText1,editText2;
+    EditText editText1;
     Button upbutton;
     Spinner spinnerGender;
     Spinner spinnerType;
     Spinner spinnerSportName;
-    ArrayAdapter<CharSequence> adapter;
+    ArrayAdapter<CharSequence> adapterName;
+    ArrayAdapter<CharSequence> adapterType;
+    ArrayAdapter<CharSequence> adapterGender;
 
     public UpdateSportFragment() {
         // Required empty public constructor
@@ -35,19 +41,19 @@ public class UpdateSportFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_update_sport, container, false);
 
         spinnerType = view.findViewById(R.id.updateSportTypeSpinner);
-        adapter = ArrayAdapter.createFromResource(getContext(), R.array.sporttype, R.layout.support_simple_spinner_dropdown_item);
-        adapter.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);
-        spinnerType.setAdapter(adapter);
+        adapterType = ArrayAdapter.createFromResource(getContext(), R.array.sporttype, R.layout.support_simple_spinner_dropdown_item);
+        adapterType.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);
+        spinnerType.setAdapter(adapterType);
 
         spinnerGender = view.findViewById(R.id.updateSportGenderSpinner);
-        adapter = ArrayAdapter.createFromResource(getContext(), R.array.gender, R.layout.support_simple_spinner_dropdown_item);
-        adapter.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);
-        spinnerGender.setAdapter(adapter);
+        adapterGender = ArrayAdapter.createFromResource(getContext(), R.array.gender, R.layout.support_simple_spinner_dropdown_item);
+        adapterGender.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);
+        spinnerGender.setAdapter(adapterGender);
 
         spinnerSportName = view.findViewById(R.id.updateSportnameSpinner);
-        adapter = ArrayAdapter.createFromResource(getContext(), R.array.sportnames, R.layout.support_simple_spinner_dropdown_item);
-        adapter.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);
-        spinnerSportName.setAdapter(adapter);
+        adapterName = ArrayAdapter.createFromResource(getContext(), R.array.sportnames, R.layout.support_simple_spinner_dropdown_item);
+        adapterName.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);
+        spinnerSportName.setAdapter(adapterName);
 
         editText1 = view.findViewById(R.id.sportIDupdate);
 
@@ -79,7 +85,43 @@ public class UpdateSportFragment extends Fragment {
             Toast.makeText(getActivity(), ""+e, Toast.LENGTH_LONG).show();
         }
         editText1.setText("");
-
-
     }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        editText1.setOnKeyListener(this::liveupdates);
+    }
+
+    private boolean liveupdates(View view, int i, KeyEvent keyEvent) {
+        int checksportid = 0;
+        int sportid = 0;
+        String sportname = "";
+        String sportgender = "";
+        String sporttype = "";
+
+        List<Sports> sports = FirstActivity.roomDbBuilder.myDaoAdmin().getSports();
+
+        try{
+            checksportid = Integer.parseInt(editText1.getText().toString());
+        }catch (NumberFormatException e){}
+
+        for (Sports sp : sports){
+            if (sp.getId() == checksportid){
+                sportid = sp.getId();
+                sportname = sp.getName();
+                sportgender = sp.getGender();
+                sporttype = sp.getType();
+            }
+        }
+
+
+        spinnerSportName.setSelection(adapterName.getPosition(sportname));
+        spinnerGender.setSelection(adapterGender.getPosition(sportgender));
+        spinnerType.setSelection(adapterType.getPosition(sporttype));
+
+        return false;
+    }
+
+
 }
