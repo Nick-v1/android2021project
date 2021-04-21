@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 public class FirstActivity extends AppCompatActivity {
 
@@ -21,12 +22,13 @@ public class FirstActivity extends AppCompatActivity {
     Toolbar topAppBar;
     FragmentManager fragmentManager;
     public static roomDb roomDbBuilder;
+    public static FirebaseFirestore firedb;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_first);
-
+        firedb = FirebaseFirestore.getInstance();
 
         drawerLayout = findViewById(R.id.drawerLayout);
         navigationView = findViewById(R.id.NavMenuView);
@@ -111,12 +113,15 @@ public class FirstActivity extends AppCompatActivity {
             return true;
         }
         else if(item.getItemId() == R.id.itemDrawerAddGame){
+            fragmentManager.beginTransaction().replace(R.id.fragment_container, new InsertGameFragment()).commit();
             return true;
         }
         else if (item.getItemId() == R.id.itemDrawerDeleteGame){
+            fragmentManager.beginTransaction().replace(R.id.fragment_container, new DeleteGameFragment()).commit();
             return true;
         }
         else if (item.getItemId() == R.id.itemDrawerUpdateGame){
+            fragmentManager.beginTransaction().replace(R.id.fragment_container, new UpdateGameFragment()).commit();
             return true;
         }
         else if (item.getItemId() == R.id.itemDrawerHome){

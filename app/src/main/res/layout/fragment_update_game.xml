@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".UpdateGameFragment"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Update a Game"
+        android:textAlignment="center"/>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingRight="20dp"
+        android:paddingLeft="20dp"
+        android:paddingTop="20dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/updateGameId"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Type Game ID"
+            android:inputType="number"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Choose Sport:"
+        android:textStyle="bold"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingTop="20dp"/>
+
+    <Spinner
+        android:id="@+id/spinnerUpdateGameName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingRight="30sp"
+        android:backgroundTint="#2196F3"
+        android:layoutDirection="rtl" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:text="Choose Type:"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingTop="20dp" />
+
+    <Spinner
+        android:id="@+id/spinnerUpdateGameType"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#2196F3"
+        android:layoutDirection="rtl"
+        android:paddingRight="30sp" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingRight="20dp"
+        android:paddingLeft="20dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/updateGameDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Type date" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingRight="20dp"
+        android:paddingLeft="20dp"
+        android:paddingTop="20dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/updateGameCity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Type City" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingRight="20dp"
+        android:paddingLeft="20dp"
+        android:paddingTop="20dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/updateGameCountry"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Type Country" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+
+    <Button
+        android:id="@+id/updategamebutton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:layout_marginRight="70dp"
+        android:layout_marginLeft="70dp"
+        android:text="Update game" />
+
+</LinearLayout>

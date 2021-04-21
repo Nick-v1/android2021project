@@ -12,6 +12,7 @@
         <item> 1. Show Sports </item>
         <item> 2. Show Athletes </item>
         <item> 3. Show Teams </item>
+        <item> 4. Show Games</item>
     </string-array>
 
     <string-array name="gender">
@@ -20,9 +21,16 @@
     </string-array>
 
     <string-array name="sportnames">
-        <item>Football</item>          <item>Basketball</item>   <item>Tennis</item>    <item>Baseball</item>        <item>Golf</item>
-        <item>Running</item>            <item>Volleyball</item>    <item>Swimming</item>
-        <item>Boxing</item>             <item>Pool</item>
+        <item>Football</item>
+        <item>Basketball</item>
+        <item>Tennis</item>
+        <item>Baseball</item>
+        <item>Golf</item>
+        <item>Running</item>
+        <item>Volleyball</item>
+        <item>Swimming</item>
+        <item>Boxing</item>
+        <item>Pool</item>
         <item>Gymnastics</item>
     </string-array>
 </resources>

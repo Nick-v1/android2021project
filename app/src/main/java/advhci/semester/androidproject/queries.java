@@ -13,6 +13,13 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
+
 import java.util.List;
 
 
@@ -47,6 +54,7 @@ public class queries extends Fragment {
 
     //Query Results
     private void results(View view) {
+        CollectionReference collectionReference;
 
         if (spinner.getSelectedItemPosition() == 0 ) {
             List<Sports> sports = FirstActivity.roomDbBuilder.myDaoAdmin().getSports();
@@ -83,9 +91,36 @@ public class queries extends Fragment {
             }
             QueryResultsText.setText(result);
         }
+        else if (spinner.getSelectedItemPosition() == 3){
+            collectionReference = FirstActivity.firedb.collection("Games");
+            collectionReference.get().addOnSuccessListener(this::getFirebaseGames);
+            collectionReference.get().addOnFailureListener(this::getFirebaseGamesFailedToRead);
+        }
         else
             QueryResultsText.setText(null);
+    }
 
+    private void getFirebaseGamesFailedToRead(Exception e) {
+        Toast.makeText(getActivity(), "Query operation failed.", Toast.LENGTH_SHORT).show();
+    }
+
+    private void getFirebaseGames(QuerySnapshot queryDocumentSnapshots) {
+        String result = "";
+        for (QueryDocumentSnapshot documentSnapshot : queryDocumentSnapshots) {
+            Games game = documentSnapshot.toObject(Games.class);
+
+            String dateofmatch = game.getDate_of_match();
+            String gsportname = game.getGsport_name();
+            String gsporttype = game.getGsport_type();
+            String gcity = game.getGcity();
+            String gcountry = game.getGcountry();
+            Integer gameid = game.getGid();
+
+            result += "Date of Game: " + dateofmatch + "\nLocation: " + gcity + ", " + gcountry +
+                    "\nSport name: " + gsportname + "\nSport Type: " + gsporttype +
+                    "\nGame id: " + gameid + "\n\n";
+        }
+        QueryResultsText.setText(result);
     }
 
 

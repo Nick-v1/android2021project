@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "448652556472",
+    "project_id": "semester-project-39715",
+    "storage_bucket": "semester-project-39715.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:448652556472:android:faa7e1546d0058a3b8dc4d",
+        "android_client_info": {
+          "package_name": "advhci.semester.androidproject"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "448652556472-9012sh9m6g6kfrbl96jkemdsjetpvp96.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA5Yg-X8FkUC15h7S8t73PqoCCP47-vqI0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "448652556472-9012sh9m6g6kfrbl96jkemdsjetpvp96.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
