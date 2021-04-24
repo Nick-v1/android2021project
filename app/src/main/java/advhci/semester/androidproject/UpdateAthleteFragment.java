@@ -16,6 +16,8 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.textfield.TextInputLayout;
+
 import java.util.List;
 
 
@@ -29,6 +31,7 @@ public class UpdateAthleteFragment extends Fragment {
     Spinner spinnerGender;
     ArrayAdapter<CharSequence> adapter;
     TextView athleteid, athletename, athletelastname, athletecity, athletecountry, athletesportid, athletebirthdate;
+    TextInputLayout textInputLayout;
     Button bn;
 
     @Override
@@ -49,6 +52,9 @@ public class UpdateAthleteFragment extends Fragment {
         athletecountry = view.findViewById(R.id.updateAthleteCountry);
         athletesportid = view.findViewById(R.id.updateAthleteSportID);
         athletebirthdate = view.findViewById(R.id.updateAthleteBirthdate);
+
+        textInputLayout =  view.findViewById(R.id.updateAthleteLayoutsportid);
+        textInputLayout.setEnabled(false);
 
         bn = view.findViewById(R.id.updateAthleteButton);
         bn.setOnClickListener(this::updateAthlete);

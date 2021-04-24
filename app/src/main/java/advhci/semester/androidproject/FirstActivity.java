@@ -7,6 +7,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.FragmentManager;
 import androidx.room.Room;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -127,6 +128,11 @@ public class FirstActivity extends AppCompatActivity {
         else if (item.getItemId() == R.id.itemDrawerHome){
             fragmentManager.beginTransaction().replace(R.id.fragment_container, new HomeFragment()).commit();
             return true;
+        }
+        else if (item.getItemId() == R.id.itemDrawerGoogleMap){
+            Intent intent = new Intent(getApplicationContext(), GoogleMapsActivity.class);
+            startActivity(intent);
+            finish();
         }
         else if (item.getItemId() == R.id.itemDrawerInfo){
 //info fragment fragmentManager.beginTransaction().replace(R.id.fragment_container, new InfoFragment()).commit();

@@ -17,6 +17,7 @@
         android:text="Delete Team:" />
 
     <EditText
+        android:id="@+id/deleteTeamid"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Team id to delete"
@@ -24,8 +25,17 @@
         android:ems="10"
         android:inputType="number" />
 
+    <EditText
+        android:id="@+id/deleteTeamSportid"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Team Sport id to delete"
+        android:layout_margin="20dp"
+        android:ems="10"
+        android:inputType="number" />
+
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/deleteTeambutton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"

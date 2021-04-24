@@ -91,6 +91,24 @@ public class queries extends Fragment {
             }
             QueryResultsText.setText(result);
         }
+        else if (spinner.getSelectedItemPosition() == 2){
+            List<Teams> teams = FirstActivity.roomDbBuilder.myDaoAdmin().getTeams();
+            String result = "";
+            for (Teams t : teams){
+                int teamid = t.getTeam_id();
+                String teamname = t.getName();
+                String stadium = t.getStadium();
+                String city = t.getCity();
+                String country = t.getCountry();
+                int teamsportid = t.getSport_id();
+                String founddate = t.getFoundation_date();
+
+                result += "Team ID: " + teamid + "\nTeam name: " + teamname + "\nTeam stadium: " + stadium + "\nParticipates on sport with id: " +teamsportid+ "\nFoundation date: "+founddate+"\n\n";
+
+                Toast.makeText(getActivity(), "Total Teams: "+teams.size(), Toast.LENGTH_SHORT).show();
+            }
+            QueryResultsText.setText(result);
+        }
         else if (spinner.getSelectedItemPosition() == 3){
             collectionReference = FirstActivity.firedb.collection("Games");
             collectionReference.get().addOnSuccessListener(this::getFirebaseGames);

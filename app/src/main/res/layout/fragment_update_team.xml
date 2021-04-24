@@ -24,6 +24,7 @@
         android:layout_marginLeft="20dp">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/updateTeamid"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Team ID to update"
@@ -39,6 +40,7 @@
         android:layout_marginLeft="20dp">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/updateTeamName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Team Name" />
@@ -53,6 +55,7 @@
         android:layout_marginLeft="20dp">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/updateTeamStadium"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Stadium" />
@@ -67,6 +70,7 @@
         android:layout_marginLeft="20dp">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/updateTeamCity"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="City" />
@@ -81,25 +85,13 @@
         android:layout_marginLeft="20dp">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/updateTeamCountry"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="County" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginLeft="20dp">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Sport ID" />
-
-    </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
@@ -110,6 +102,7 @@
 
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/updateTeamFoundationDate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Foundation Date"
@@ -117,7 +110,24 @@
 
     </com.google.android.material.textfield.TextInputLayout>
 
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/updateTeamLayoutsportid"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/updateTeamSportId"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Sport ID (unchangable)" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
     <Button
+        android:id="@+id/updateTeamButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Update Team Info"

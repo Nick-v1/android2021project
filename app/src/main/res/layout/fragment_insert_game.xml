@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".InsertGameFragment"
+    tools:context=".InsertGameFragment">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical">
 
     <TextView
@@ -48,16 +51,101 @@
         android:paddingRight="30sp" />
 
     <com.google.android.material.textfield.TextInputLayout
+        android:visibility="gone"
+        android:id="@+id/gamesportidlayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingRight="20dp"
         android:paddingLeft="20dp">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/insertGameSportid"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Type Sport ID"
+            android:inputType="number" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingRight="20dp"
+        android:paddingLeft="20dp"
+        android:paddingTop="20dp">
+
+        <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/insertGameDate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Type date" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:visibility="gone"
+        android:id="@+id/team1idlayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="20dp"
+        android:paddingRight="20dp"
+        android:paddingLeft="20dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/team1idtext"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Team 1 Id"
+            android:inputType="number"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:visibility="gone"
+        android:id="@+id/team1scorelayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="20dp"
+        android:paddingRight="20dp"
+        android:paddingLeft="20dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/team1scoretext"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Team 1 Score"
+            android:inputType="number"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:visibility="gone"
+        android:id="@+id/team2idlayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="20dp"
+        android:paddingRight="20dp"
+        android:paddingLeft="20dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/team2idtext"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Team 2 Id"
+            android:inputType="number"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:visibility="gone"
+        android:id="@+id/team2scorelayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="20dp"
+        android:paddingRight="20dp"
+        android:paddingLeft="20dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/team2scoretext"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Team 2 Score"
+            android:inputType="number"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -113,5 +201,5 @@
         android:layout_marginLeft="70dp"
         android:text="Add game" />
 
-
 </LinearLayout>
+</ScrollView>

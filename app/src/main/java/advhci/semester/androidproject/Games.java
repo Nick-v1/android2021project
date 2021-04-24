@@ -8,6 +8,16 @@ public class Games {
     private int gid;
     private String gsport_name;
     private String gsport_type;
+    private String info;
+
+
+    public String getInfo() {
+        return info;
+    }
+
+    public void setInfo(String info) {
+        this.info = info;
+    }
 
     public Games() {}
 

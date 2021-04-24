@@ -34,4 +34,16 @@ public interface myDao {
 
     @Update
     public void updateAthlete(Athletes athlete);
+
+    @Insert
+    public void addTeam(Teams team);
+
+    @Query("select * from team")
+    public List<Teams> getTeams();
+
+    @Delete
+    public void deleteTeam(Teams team);
+
+    @Update
+    public void updateTeam(Teams team);
 }

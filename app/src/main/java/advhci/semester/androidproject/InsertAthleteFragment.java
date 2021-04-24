@@ -13,6 +13,8 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.List;
+
 
 public class InsertAthleteFragment extends Fragment {
 
@@ -72,20 +74,27 @@ public class InsertAthleteFragment extends Fragment {
        String var_athlete_birthdate = textbirthdate.getText().toString();
        String var_athletegender = spinnerGender.getSelectedItem().toString();
 
+        List<Sports> sport = FirstActivity.roomDbBuilder.myDaoAdmin().getSports();
+
        try{
-           Athletes athlete = new Athletes();
-           athlete.setAthlete_id(var_athleteid);
-           athlete.setFirstname(var_athletename);
-           athlete.setLastname(var_athletelastname);
-           athlete.setCity(var_athletecity);
-           athlete.setCountry(var_athletecountry);
-           athlete.setSport_id(var_athlete_sport_id);
-           athlete.setBirthdate(var_athlete_birthdate);
-           athlete.setGender(var_athletegender);
-           FirstActivity.roomDbBuilder.myDaoAdmin().addAthlete(athlete);
-           Toast.makeText(getActivity(), "Added athlete", Toast.LENGTH_SHORT).show();
+           for (Sports sp : sport) {
+               if (var_athlete_sport_id == sp.getId() && var_athletegender.equals(sp.getGender())) {
+                   Athletes athlete = new Athletes();
+                   athlete.setAthlete_id(var_athleteid);
+                   athlete.setFirstname(var_athletename);
+                   athlete.setLastname(var_athletelastname);
+                   athlete.setCity(var_athletecity);
+                   athlete.setCountry(var_athletecountry);
+                   athlete.setSport_id(var_athlete_sport_id);
+                   athlete.setBirthdate(var_athlete_birthdate);
+                   athlete.setGender(var_athletegender);
+                   FirstActivity.roomDbBuilder.myDaoAdmin().addAthlete(athlete);
+                   Toast.makeText(getActivity(), "Added athlete", Toast.LENGTH_SHORT).show();
+               }
+           }
+
        } catch (Exception e){
-           Toast.makeText(getActivity(), "Could not be added\nPossible Reasons: Athlete with same id exists or sport id does not exist",Toast.LENGTH_LONG).show();
+           Toast.makeText(getActivity(), "Could not be added\nReason: Athlete with same id exists",Toast.LENGTH_LONG).show();
        }
 
     }

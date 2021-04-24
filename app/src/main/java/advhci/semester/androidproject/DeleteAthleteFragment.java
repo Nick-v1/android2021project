@@ -18,7 +18,7 @@ public class DeleteAthleteFragment extends Fragment {
     public DeleteAthleteFragment() {
         // Required empty public constructor
     }
-    TextView athid;
+    TextView athid, athsportid;
     Button bn;
 
     @Override
@@ -28,6 +28,7 @@ public class DeleteAthleteFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_delete_athlete, container, false);
 
         athid = view.findViewById(R.id.deleteAthleteid);
+        athsportid = view.findViewById(R.id.deleteAthleteSportid);
         bn = view.findViewById(R.id.deleteAthleteButton);
         bn.setOnClickListener(this::deleteAnAthleteFromdb);
 
@@ -37,16 +38,23 @@ public class DeleteAthleteFragment extends Fragment {
     private void deleteAnAthleteFromdb(View view) {
 
         int var_athleteID = 0;
+        int var_athletesportid = 0;
         try{
             var_athleteID = Integer.parseInt(athid.getText().toString());
+            var_athletesportid = Integer.parseInt(athsportid.getText().toString());
         } catch (Exception e){
-            Toast.makeText(getActivity(), ""+e, Toast.LENGTH_SHORT).show();
+            Toast.makeText(getActivity(), "Fill both fields for deletion", Toast.LENGTH_SHORT).show();
+            return;
         }
-
+        try {
             Athletes athlete = new Athletes();
             athlete.setAthlete_id(var_athleteID);
+            athlete.setSport_id(var_athletesportid);
             FirstActivity.roomDbBuilder.myDaoAdmin().deleteAthlete(athlete);
             Toast.makeText(getActivity(), "Deleted athlete", Toast.LENGTH_SHORT).show();
-//doesn't work ???
+            athid.setText("");
+            athsportid.setText("");
+        } catch (Exception e){}
     }
+
 }
