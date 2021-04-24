@@ -87,8 +87,8 @@ public class queries extends Fragment {
                 result += "Id: " + athid + "\nFirst name: " + athname + "\nLast Name: " + athlastname + "\nCity: " + athcity + "\nCountry: " + athcountry + "\nSport id: " + athsportid + "\nBirthdate: "
                         + athbd + "\nGender: " + athgender + "\n\n";
 
-                Toast.makeText(getActivity(), "Total Athletes: "+athletes.size(), Toast.LENGTH_SHORT).show();
             }
+            Toast.makeText(getActivity(), "Total Athletes: "+athletes.size(), Toast.LENGTH_SHORT).show();
             QueryResultsText.setText(result);
         }
         else if (spinner.getSelectedItemPosition() == 2){
@@ -105,8 +105,8 @@ public class queries extends Fragment {
 
                 result += "Team ID: " + teamid + "\nTeam name: " + teamname + "\nTeam stadium: " + stadium + "\nParticipates on sport with id: " +teamsportid+ "\nFoundation date: "+founddate+"\n\n";
 
-                Toast.makeText(getActivity(), "Total Teams: "+teams.size(), Toast.LENGTH_SHORT).show();
             }
+            Toast.makeText(getActivity(), "Total Teams: "+teams.size(), Toast.LENGTH_SHORT).show();
             QueryResultsText.setText(result);
         }
         else if (spinner.getSelectedItemPosition() == 3){

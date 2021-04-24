@@ -7,25 +7,22 @@
             android:title="Queries"
             android:icon="@drawable/ic_search_black_24dp"/>
 
-        <item android:title="Athlete">
+
+        <item android:title="Sport">
             <menu>
                 <group android:checkableBehavior="single">
-
                     <item
-                        android:id="@+id/itemDrawerAddAthlete"
+                        android:id="@+id/itemDrawerAddSport"
                         android:icon="@drawable/outline_add_24"
-                        android:title="Add Athlete" />
-
+                        android:title="Add Sport" />
                     <item
-                        android:id="@+id/itemDrawerDeleteAthlete"
-                        android:title="Delete Athlete"
+                        android:id="@+id/itemDrawerDeleteSport"
+                        android:title="Delete Sport"
                         android:icon="@drawable/outline_remove_24"/>
-
                     <item
-                        android:id="@+id/itemDrawerUpdateAthlete"
-                        android:title="Update Athlete"
+                        android:id="@+id/itemDrawerUpdateSport"
+                        android:title="Update Sport"
                         android:icon="@drawable/outline_update_24"/>
-
                 </group>
             </menu>
         </item>
@@ -52,21 +49,25 @@
         </item>
     </group>
     <group android:id="@+id/group3">
-        <item android:title="Sport">
+        <item android:title="Athlete">
             <menu>
                 <group android:checkableBehavior="single">
+
                     <item
-                        android:id="@+id/itemDrawerAddSport"
+                        android:id="@+id/itemDrawerAddAthlete"
                         android:icon="@drawable/outline_add_24"
-                        android:title="Add Sport" />
+                        android:title="Add Athlete" />
+
                     <item
-                        android:id="@+id/itemDrawerDeleteSport"
-                        android:title="Delete Sport"
+                        android:id="@+id/itemDrawerDeleteAthlete"
+                        android:title="Delete Athlete"
                         android:icon="@drawable/outline_remove_24"/>
+
                     <item
-                        android:id="@+id/itemDrawerUpdateSport"
-                        android:title="Update Sport"
+                        android:id="@+id/itemDrawerUpdateAthlete"
+                        android:title="Update Athlete"
                         android:icon="@drawable/outline_update_24"/>
+
                 </group>
             </menu>
         </item>
