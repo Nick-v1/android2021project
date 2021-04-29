@@ -26,7 +26,7 @@ public class InsertAthleteFragment extends Fragment {
     Spinner spinnerGender;
     ArrayAdapter<CharSequence> adapter;
     Button button;
-    TextView textid, textname, textlastname, textcity, textcountry, textsportid, textbirthdate;
+    TextView textid, textname, textlastname, textcity, textcountry, textsportid, textbirthdate, textperformance;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -46,6 +46,7 @@ public class InsertAthleteFragment extends Fragment {
         textcountry = view.findViewById(R.id.insertAthleteCountry);
         textsportid = view.findViewById(R.id.insertAthleteSportid);
         textbirthdate = view.findViewById(R.id.insertAthleteBirthdate);
+        textperformance = view.findViewById(R.id.insertAthletePerformance);
 
         button = view.findViewById(R.id.insertAthleteButton);
         button.setOnClickListener(this::addAthlete);
@@ -56,15 +57,21 @@ public class InsertAthleteFragment extends Fragment {
     private void addAthlete(View view){
 
        int var_athleteid = 0;
+       double var_performance = 0;
        try{
            var_athleteid = Integer.parseInt(textid.getText().toString());
        } catch (Exception e){
            Toast.makeText(getActivity(), ""+e, Toast.LENGTH_SHORT).show();
        }
+       try{
+           var_performance = Double.parseDouble(textperformance.getText().toString());
+       }catch (Exception e){}
+
        String var_athletename = textname.getText().toString();
        String var_athletelastname = textlastname.getText().toString();
        String var_athletecity = textcity.getText().toString();
        String var_athletecountry = textcountry.getText().toString();
+
        int var_athlete_sport_id = 0;
        try {
            var_athlete_sport_id = Integer.parseInt(textsportid.getText().toString());
@@ -78,7 +85,7 @@ public class InsertAthleteFragment extends Fragment {
 
        try{
            for (Sports sp : sport) {
-               if (var_athlete_sport_id == sp.getId() && var_athletegender.equals(sp.getGender())) {
+               if (var_athlete_sport_id == sp.getId() && var_athletegender.equals(sp.getGender()) && sp.getType().equals("Individual")) {
                    Athletes athlete = new Athletes();
                    athlete.setAthlete_id(var_athleteid);
                    athlete.setFirstname(var_athletename);
@@ -88,6 +95,7 @@ public class InsertAthleteFragment extends Fragment {
                    athlete.setSport_id(var_athlete_sport_id);
                    athlete.setBirthdate(var_athlete_birthdate);
                    athlete.setGender(var_athletegender);
+                   athlete.setPerformance(var_performance);
                    FirstActivity.roomDbBuilder.myDaoAdmin().addAthlete(athlete);
                    Toast.makeText(getActivity(), "Added athlete", Toast.LENGTH_SHORT).show();
                }

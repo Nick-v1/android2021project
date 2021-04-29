@@ -18,6 +18,8 @@ import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
+import java.util.List;
+
 
 public class UpdateGameFragment extends Fragment {
 
@@ -106,6 +108,7 @@ public class UpdateGameFragment extends Fragment {
 
     private void updateGameInFireBase(View view) {
         int var_gameid = 0;
+
         try{
             var_gameid = Integer.parseInt(gameidTextView.getText().toString());
         } catch (NumberFormatException e){}
@@ -116,7 +119,6 @@ public class UpdateGameFragment extends Fragment {
         String varsportname = spinnerSportname.getSelectedItem().toString();
         String varsporttype = spinnerType.getSelectedItem().toString();
 
-        /**come back here after Teams class has added. **/
 
         try{
             Games game = new Games();

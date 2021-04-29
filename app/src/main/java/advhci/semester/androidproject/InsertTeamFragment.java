@@ -63,49 +63,56 @@ public class InsertTeamFragment extends Fragment {
         String var_teamcity = teamcity.getText().toString();
         String var_teamccountry = teamcountry.getText().toString();
         String var_teamfoundationdate = teamfoundationdate.getText().toString();
+        List<Sports> sport = FirstActivity.roomDbBuilder.myDaoAdmin().getSports();
 
-        try{
-            teamsportlayout.setErrorEnabled(false);
-            teamidlayout.setErrorEnabled(false);
-            Teams team = new Teams();
-            team.setTeam_id(var_teamid);
-            team.setName(var_teamname);
-            team.setStadium(var_teamstadium);
-            team.setCity(var_teamcity);
-            team.setCountry(var_teamccountry);
-            team.setSport_id(var_teamsportid);
-            team.setFoundation_date(var_teamfoundationdate);
-            FirstActivity.roomDbBuilder.myDaoAdmin().addTeam(team);
-            Toast.makeText(getActivity(), "Team added", Toast.LENGTH_SHORT).show();
-            teamsportlayout.setErrorEnabled(false);
-            teamidlayout.setErrorEnabled(false);
-            teamid.setText("");
-            teamname.setText("");
-            teamstadium.setText("");
-            teamcity.setText("");
-            teamcountry.setText("");
-            teamfoundationdate.setText("");
-            teamsportid.setText("");
-        }catch(Exception e){
-            List<Sports> sports = FirstActivity.roomDbBuilder.myDaoAdmin().getSports();
-            int sportid = 0;
-            for (Sports s : sports){
-                sportid = s.getId();
-                if (var_teamsportid != sportid ) {
-                    teamsportlayout.setError("Sport id was not found");
-                    break;
-                }
-            }
-            List<Teams> teams = FirstActivity.roomDbBuilder.myDaoAdmin().getTeams();
-            int teamid = 0;
-            for (Teams t : teams){
-                teamid = t.getTeam_id();
-                if (var_teamid == teamid ){
-                    teamidlayout.setError("Team id already exists");
-                    break;
+        for (Sports sp : sport){
+            if (sp.getId() == var_teamsportid && sp.getType().equals("Team")){
+                try{
+                    teamsportlayout.setErrorEnabled(false);
+                    teamidlayout.setErrorEnabled(false);
+                    Teams team = new Teams();
+                    team.setTeam_id(var_teamid);
+                    team.setName(var_teamname);
+                    team.setStadium(var_teamstadium);
+                    team.setCity(var_teamcity);
+                    team.setCountry(var_teamccountry);
+                    team.setSport_id(var_teamsportid);
+                    team.setFoundation_date(var_teamfoundationdate);
+                    FirstActivity.roomDbBuilder.myDaoAdmin().addTeam(team);
+                    Toast.makeText(getActivity(), "Team added", Toast.LENGTH_SHORT).show();
+                    teamsportlayout.setErrorEnabled(false);
+                    teamidlayout.setErrorEnabled(false);
+                    teamid.setText("");
+                    teamname.setText("");
+                    teamstadium.setText("");
+                    teamcity.setText("");
+                    teamcountry.setText("");
+                    teamfoundationdate.setText("");
+                    teamsportid.setText("");
+                }catch(Exception e){
+                    List<Sports> sports = FirstActivity.roomDbBuilder.myDaoAdmin().getSports();
+                    int sportid = 0;
+                    for (Sports s : sports){
+                        sportid = s.getId();
+                        if (var_teamsportid != sportid ) {
+                            teamsportlayout.setError("Sport id was not found");
+                            break;
+                        }
+                    }
+                    List<Teams> teams = FirstActivity.roomDbBuilder.myDaoAdmin().getTeams();
+                    int teamid = 0;
+                    for (Teams t : teams){
+                        teamid = t.getTeam_id();
+                        if (var_teamid == teamid ){
+                            teamidlayout.setError("Team id already exists");
+                            break;
+                        }
+                    }
                 }
             }
         }
+
+
 
     }
 }

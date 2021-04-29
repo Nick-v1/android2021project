@@ -17,6 +17,9 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputLayout;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.List;
 
@@ -87,7 +90,6 @@ public class InsertGameFragment extends Fragment {
             public boolean onKey(View v, int keyCode, KeyEvent event) {
 
                 textInputLayoutgameid.setError("Adding an existing id will just update the corresponding game. Be careful when adding a new game as it will overwrite the existing game");
-
                 return false;
             }
         });
@@ -132,6 +134,9 @@ public class InsertGameFragment extends Fragment {
             }
         });
     }
+
+
+
 
     private void addGameToDB(View view) {
         int var_gameid = 0;
@@ -201,7 +206,7 @@ public class InsertGameFragment extends Fragment {
                 for (Athletes ath : athlete) {
                      if (ath.getSport_id() == gamesportid){
                         athletescounter++;
-                        sumperformance += Math.random()*10; //how many athletes
+                        sumperformance += ath.getPerformance(); //how many athletes
                     }
                 }
             } sumperformance = sumperformance / athletescounter;
@@ -213,11 +218,13 @@ public class InsertGameFragment extends Fragment {
                 game.setGcountry(varcountry);
                 game.setGsport_name(varsportname);
                 game.setGsport_type(varsporttype);
-                game.setInfo(athletescounter+" athletes took part in with average performance: "+Double.parseDouble(String.valueOf(sumperformance).substring(0,4)));
+                game.setInfo(athletescounter+" athletes took part in with average performance: "+sumperformance);
                 FirstActivity.firedb.collection("Games")
                         .document(""+var_gameid).set(game).addOnSuccessListener(this::onComplete);
 
-            } catch (Exception e){}
+            } catch (Exception e){
+                Toast.makeText(getActivity(), ""+e, Toast.LENGTH_SHORT).show();
+            }
         }
 
 

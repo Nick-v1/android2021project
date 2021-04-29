@@ -34,6 +34,16 @@ public class Athletes {
 
     private String gender;
 
+    private double performance;
+
+    public double getPerformance() {
+        return performance;
+    }
+
+    public void setPerformance(double performance) {
+        this.performance = performance;
+    }
+
     public String getGender() {
         return gender;
     }
