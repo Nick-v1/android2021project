@@ -8,7 +8,9 @@ import androidx.fragment.app.FragmentManager;
 import androidx.room.Room;
 
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
@@ -52,12 +54,17 @@ public class FirstActivity extends AppCompatActivity {
             }
             fragmentManager.beginTransaction().add(R.id.fragment_container, new HomeFragment()).commit();
         }
-
+        if(findViewById(R.id.fragment_container2) != null){
+            if(savedInstanceState != null)
+                return;
+            fragmentManager.beginTransaction().add(R.id.fragment_container2, new queries()).commit();
+        }
 
     }
 
     private void openDrawer(View view) {
-        drawerLayout.openDrawer(GravityCompat.START);           //method that opens drawer
+            drawerLayout.openDrawer(GravityCompat.START);
+            //method that opens drawer
     }
 
     public void endApp(View v){
@@ -132,7 +139,7 @@ public class FirstActivity extends AppCompatActivity {
         else if (item.getItemId() == R.id.itemDrawerGoogleMap){
             Intent intent = new Intent(getApplicationContext(), GoogleMapsActivity.class);
             startActivity(intent);
-            finish();
+            return true;
         }
         else if (item.getItemId() == R.id.itemDrawerInfo){
 //info fragment fragmentManager.beginTransaction().replace(R.id.fragment_container, new InfoFragment()).commit();

@@ -14,6 +14,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
@@ -119,7 +120,6 @@ public class UpdateGameFragment extends Fragment {
         String varsportname = spinnerSportname.getSelectedItem().toString();
         String varsporttype = spinnerType.getSelectedItem().toString();
 
-
         try{
             Games game = new Games();
             game.setGid(var_gameid);
@@ -128,7 +128,6 @@ public class UpdateGameFragment extends Fragment {
             game.setGcountry(varcountry);
             game.setGsport_name(varsportname);
             game.setGsport_type(varsporttype);
-
             FirstActivity.firedb.collection("Games")
                     .document(""+var_gameid).set(game).addOnSuccessListener(this::successfull);
 
