@@ -1,5 +1,6 @@
 package advhci.semester.androidproject;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
@@ -54,13 +55,17 @@ public class FirstActivity extends AppCompatActivity {
             }
             fragmentManager.beginTransaction().add(R.id.fragment_container, new HomeFragment()).commit();
         }
-        if(findViewById(R.id.fragment_container2) != null){
-            if(savedInstanceState != null)
-                return;
-            fragmentManager.beginTransaction().add(R.id.fragment_container2, new queries()).commit();
+        int orientation = getResources().getConfiguration().orientation;
+        if (orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            if (findViewById(R.id.fragment_container2) != null) {
+                if (savedInstanceState != null)
+                    return;
+                fragmentManager.beginTransaction().replace(R.id.fragment_container2, new queries()).commit();
+            }
         }
 
     }
+
 
     private void openDrawer(View view) {
             drawerLayout.openDrawer(GravityCompat.START);
@@ -137,8 +142,7 @@ public class FirstActivity extends AppCompatActivity {
             return true;
         }
         else if (item.getItemId() == R.id.itemDrawerGoogleMap){
-            Intent intent = new Intent(getApplicationContext(), GoogleMapsActivity.class);
-            startActivity(intent);
+            fragmentManager.beginTransaction().replace(R.id.fragment_container, new GoogleMapsFragment()).commit();
             return true;
         }
         else if (item.getItemId() == R.id.itemDrawerInfo){
@@ -156,4 +160,11 @@ public class FirstActivity extends AppCompatActivity {
         return false;
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        int orientation = getResources().getConfiguration().orientation;
+        if (orientation == Configuration.ORIENTATION_LANDSCAPE)
+            fragmentManager.beginTransaction().replace(R.id.fragment_container2, new queries()).commit();
+    }
 }
