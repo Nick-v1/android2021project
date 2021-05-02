@@ -46,4 +46,10 @@ public interface myDao {
 
     @Update
     public void updateTeam(Teams team);
+
+    @Query("select DISTINCT firstname as fn, lastname as ln, performance as prfmnce from athlete where performance >= 7")
+    public List<String2Double1> getHighPerformingAthletes();
+
+    @Query("select DISTINCT a.firstname, a.lastname, s.sport_name as SportNameFemales FROM athlete a INNER JOIN sport s ON a.sid = s.sport_id WHERE a.gender = 'Female' ")
+    public List<String3> getFemaleAthletesAndSportParticipating();
 }

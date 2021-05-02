@@ -13,6 +13,8 @@
         <item> 2. Show Athletes </item>
         <item> 3. Show Teams </item>
         <item> 4. Show Games</item>
+        <item> 5. Show Athletes with performance 7 or above</item>
+        <item> 6. Show Female Athletes and Sport Name</item>
     </string-array>
 
     <string-array name="gender">

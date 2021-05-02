@@ -83,9 +83,11 @@ public class queries extends Fragment {
                 int athsportid = ath.getSport_id();
                 String athbd = ath.getBirthdate();
                 String athgender = ath.getGender();
+                Double athperformance = ath.getPerformance();
 
-                result += "Id: " + athid + "\nFirst name: " + athname + "\nLast Name: " + athlastname + "\nCity: " + athcity + "\nCountry: " + athcountry + "\nSport id: " + athsportid + "\nBirthdate: "
-                        + athbd + "\nGender: " + athgender + "\n\n";
+                result += "Id: " + athid + "\nFirst name: " + athname + "\nLast Name: " + athlastname + "\nGender: " + athgender +
+                        "\nSport id: " + athsportid + "\nPerformance: " + athperformance + "\nCity: " + athcity + "\nCountry: " + athcountry +  "\nBirthdate: "
+                        + athbd +  "\n\n";
 
             }
             Toast.makeText(getActivity(), "Total Athletes: "+athletes.size(), Toast.LENGTH_SHORT).show();
@@ -113,6 +115,30 @@ public class queries extends Fragment {
             collectionReference = FirstActivity.firedb.collection("Games");
             collectionReference.get().addOnSuccessListener(this::getFirebaseGames);
             collectionReference.get().addOnFailureListener(this::getFirebaseGamesFailedToRead);
+        }
+        else if (spinner.getSelectedItemPosition() == 4){
+            List<String2Double1> athletes = FirstActivity.roomDbBuilder.myDaoAdmin().getHighPerformingAthletes();
+            String result = "";
+            for (String2Double1 a : athletes){
+                String firstname = a.getFirstName();
+                String lastname = a.getLastName();
+                double performance = a.getPerformance();
+
+                result += "First Name: " + firstname + "\nLast Name: " + lastname + "\nPerformance: " + performance + "\n\n";
+            }
+            QueryResultsText.setText(result);
+        }
+        else if (spinner.getSelectedItemPosition() == 5){
+            List<String3> femaleAthletesAndSport = FirstActivity.roomDbBuilder.myDaoAdmin().getFemaleAthletesAndSportParticipating();
+            String result = "";
+            for (String3 i : femaleAthletesAndSport){
+                String firstname = i.getFirstname();
+                String lastname = i.getLastname();
+                String sportname = i.getSportname();
+
+                result += "First Name: " + firstname + "\nLast Name: " + lastname + "\nSport: " + sportname + "\n\n";
+            }
+            QueryResultsText.setText(result);
         }
         else
             QueryResultsText.setText(null);
