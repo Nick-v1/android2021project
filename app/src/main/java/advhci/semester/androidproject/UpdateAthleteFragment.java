@@ -30,7 +30,7 @@ public class UpdateAthleteFragment extends Fragment {
 
     Spinner spinnerGender;
     ArrayAdapter<CharSequence> adapter;
-    TextView athleteid, athletename, athletelastname, athletecity, athletecountry, athletesportid, athletebirthdate;
+    TextView athleteid, athletename, athletelastname, athletecity, athletecountry, athletesportid, athletebirthdate, athleteperformanceview;
     TextInputLayout textInputLayout;
     Button bn;
 
@@ -52,6 +52,7 @@ public class UpdateAthleteFragment extends Fragment {
         athletecountry = view.findViewById(R.id.updateAthleteCountry);
         athletesportid = view.findViewById(R.id.updateAthleteSportID);
         athletebirthdate = view.findViewById(R.id.updateAthleteBirthdate);
+        athleteperformanceview = view.findViewById(R.id.updateAthletePerformance);
 
         textInputLayout =  view.findViewById(R.id.updateAthleteLayoutsportid);
         textInputLayout.setEnabled(false);
@@ -81,6 +82,7 @@ public class UpdateAthleteFragment extends Fragment {
         }
         String var_athlete_birthdate = athletebirthdate.getText().toString();
         String var_athletegender = spinnerGender.getSelectedItem().toString();
+        double var_athleteperformance = Double.parseDouble(athleteperformanceview.getText().toString());
 
         try {
             Athletes athlete = new Athletes();
@@ -92,6 +94,7 @@ public class UpdateAthleteFragment extends Fragment {
             athlete.setSport_id(var_athlete_sport_id);
             athlete.setBirthdate(var_athlete_birthdate);
             athlete.setGender(var_athletegender);
+            athlete.setPerformance(var_athleteperformance);
             FirstActivity.roomDbBuilder.myDaoAdmin().updateAthlete(athlete);
             Toast.makeText(getActivity(), "Updated athlete", Toast.LENGTH_SHORT).show();
         } catch (Exception e) {
@@ -116,6 +119,7 @@ public class UpdateAthleteFragment extends Fragment {
         int athsportid = 0;
         String athbd = "";
         String athgender = "";
+        String athleteperformance = "";
 
         List<Athletes> athletes = FirstActivity.roomDbBuilder.myDaoAdmin().getAthletes();
 
@@ -123,7 +127,7 @@ public class UpdateAthleteFragment extends Fragment {
             checkTextId = Integer.parseInt(athleteid.getText().toString());
         }catch(NumberFormatException e){ }
 
-
+        int counter = 0;
         for (Athletes ath : athletes) {
             if (ath.getAthlete_id() == checkTextId) {
                 athid = ath.getAthlete_id();
@@ -134,8 +138,17 @@ public class UpdateAthleteFragment extends Fragment {
                 athsportid = ath.getSport_id();
                 athbd = ath.getBirthdate();
                 athgender = ath.getGender();
+                athleteperformance = String.valueOf(ath.getPerformance());
+                counter++;
             }
         }
+
+        if (counter > 1){
+            textInputLayout.setEnabled(true);
+        }
+        else
+            textInputLayout.setEnabled(false);
+
         String textvalueofsportid = String.valueOf(athsportid);
 
         athletename.setText(athname);
@@ -144,6 +157,7 @@ public class UpdateAthleteFragment extends Fragment {
         athletecountry.setText(athcountry);
         athletesportid.setText(textvalueofsportid);
         athletebirthdate.setText(athbd);
+        athleteperformanceview.setText(athleteperformance);
 
         if(athgender.equals("Female"))
             spinnerGender.setSelection(adapter.getPosition("Female"));
