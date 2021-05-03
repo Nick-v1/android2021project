@@ -110,14 +110,14 @@
                         android:id="@+id/itemDrawerGoogleMap"
                         android:title="Google Maps"
                         android:icon="@drawable/outline_location_on_24"/>
-                    <item
+        <!--            <item
                         android:id="@+id/itemDrawerLogIn"
                         android:title="Login Maybe"
                         android:icon="@drawable/outline_login_24"/>
                     <item
                         android:id="@+id/itemDrawerLogOut"
                         android:title="Logout Maybe"
-                        android:icon="@drawable/outline_logout_24"/>
+                        android:icon="@drawable/outline_logout_24"/>    -->
                     <item
                         android:id="@+id/ExitAppDrawer"
                         android:icon="@drawable/baseline_power_settings_new_24"

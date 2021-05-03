@@ -33,7 +33,7 @@ public class InsertSportFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_insert_sport, container, false);
 
-        final String[] queryArray = getResources().getStringArray(R.array.sporttype);
+        //final String[] queryArray = getResources().getStringArray(R.array.sporttype);
 
         spinnerType = view.findViewById(R.id.insertSportSpinner);
         adapter = ArrayAdapter.createFromResource(getContext(), R.array.sporttype, R.layout.support_simple_spinner_dropdown_item);
