@@ -19,9 +19,7 @@
                 android:elevation="0dp"
                 app:menu="@menu/app_bar_menu"
                 app:navigationIcon="@drawable/outline_menu_24"
-                app:subtitle="Logged in/out"
                 app:title="Menu Drawer App" />
-            <!-- subtitle can be used to show if a user is logged in or not -->
         </com.google.android.material.appbar.AppBarLayout>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

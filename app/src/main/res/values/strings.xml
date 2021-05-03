@@ -15,6 +15,7 @@
         <item> 4. Show Games</item>
         <item> 5. Show Athletes with performance 7 or above</item>
         <item> 6. Show Female Athletes and Sport Name</item>
+        <item> 7. Show 2 most recent matches</item>
     </string-array>
 
     <string-array name="gender">

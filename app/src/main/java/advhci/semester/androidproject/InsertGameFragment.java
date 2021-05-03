@@ -160,8 +160,6 @@ public class InsertGameFragment extends Fragment {
 
         List<Athletes> athlete = FirstActivity.roomDbBuilder.myDaoAdmin().getAthletes();
 
-        /**come back here after Teams class has added. TODO: Adding different data according to the type of sport **/
-
         if (varsporttype.equals("Team")){
             try {
                 firstteamid = Integer.parseInt(gameteam1.getText().toString());

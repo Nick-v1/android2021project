@@ -17,6 +17,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
@@ -140,6 +141,11 @@ public class queries extends Fragment {
             }
             QueryResultsText.setText(result);
         }
+        else if (spinner.getSelectedItemPosition() == 6){
+            collectionReference = FirstActivity.firedb.collection("Games");
+            Query query = collectionReference.orderBy("date_of_match", Query.Direction.DESCENDING).limit(2);
+            query.get().addOnSuccessListener(this::getFirebaseGames);
+        }
         else
             QueryResultsText.setText(null);
     }
@@ -159,10 +165,11 @@ public class queries extends Fragment {
             String gcity = game.getGcity();
             String gcountry = game.getGcountry();
             Integer gameid = game.getGid();
+            String gameinfo = game.getInfo();
 
             result += "Date of Game: " + dateofmatch + "\nLocation: " + gcity + ", " + gcountry +
                     "\nSport name: " + gsportname + "\nSport Type: " + gsporttype +
-                    "\nGame id: " + gameid + "\n\n";
+                    "\nGame id: " + gameid + "\nResults: " +gameinfo+ "\n\n";
         }
         QueryResultsText.setText(result);
     }
