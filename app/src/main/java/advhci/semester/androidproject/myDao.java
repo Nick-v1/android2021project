@@ -52,4 +52,7 @@ public interface myDao {
 
     @Query("select DISTINCT a.firstname, a.lastname, s.sport_name as SportNameFemales FROM athlete a INNER JOIN sport s ON a.sid = s.sport_id WHERE a.gender = 'Female' ")
     public List<String3> getFemaleAthletesAndSportParticipating();
+
+    @Query("select DISTINCT a.firstname as string2name, a.lastname from athlete a where exists(select * from sport s where a.sid = sport_id and s.sport_name = :inputsportname)")
+    public List<String2> getAthletesParticipatingInXSport(String inputsportname);
 }

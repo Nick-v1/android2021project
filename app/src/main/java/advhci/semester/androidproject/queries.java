@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
@@ -31,9 +32,11 @@ public class queries extends Fragment {
     }
 
     Spinner spinner;
+    Spinner spinner2;
     ArrayAdapter<CharSequence> adapter;
-    TextView QueryResultsText;
-    Button bn;
+    ArrayAdapter<CharSequence> adapter2;
+    TextView QueryResultsText, v1;
+    Button bn, bnsport;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -46,16 +49,38 @@ public class queries extends Fragment {
         adapter.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
 
+        spinner2 = view.findViewById(R.id.Queryspinner2);
+        adapter2 = ArrayAdapter.createFromResource(getContext(), R.array.sportnames, R.layout.support_simple_spinner_dropdown_item);
+        adapter2.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);
+        spinner2.setAdapter(adapter2);
+
+        v1 = view.findViewById(R.id.sporttitle);
+
         QueryResultsText = view.findViewById(R.id.textViewQueryResult);
         bn = view.findViewById(R.id.buttonSearch);
         bn.setOnClickListener(this::results);
 
+        bn = view.findViewById(R.id.showallsports);
+        bn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (spinner.getSelectedItemPosition() == 7)
+                    spinner2.setVisibility(View.VISIBLE);
+            }
+        });
+
         return view;
+    }
+
+    private void showspinner2(AdapterView<?> adapterView, View view, int i, long l) {
+        if (spinner2.getSelectedItemPosition() == 7)
+            spinner2.setVisibility(View.VISIBLE);
     }
 
     //Query Results
     private void results(View view) {
         CollectionReference collectionReference;
+        spinner2.setVisibility(View.INVISIBLE);
 
         if (spinner.getSelectedItemPosition() == 0 ) {
             List<Sports> sports = FirstActivity.roomDbBuilder.myDaoAdmin().getSports();
@@ -67,9 +92,8 @@ public class queries extends Fragment {
                 String gender = sport.getGender();
 
                 result = result + "Id: " + code + "\nName: " + name + "\nType: " + type + "\nSport gender: " + gender + "\n\n";
-
-                Toast.makeText(getActivity(), "Total Sports: "+sports.size(), Toast.LENGTH_SHORT).show();
             }
+            Toast.makeText(getActivity(), "Total Sports: "+sports.size(), Toast.LENGTH_SHORT).show();
             QueryResultsText.setText(result);
         }
         else if (spinner.getSelectedItemPosition() == 1){
@@ -145,6 +169,18 @@ public class queries extends Fragment {
             collectionReference = FirstActivity.firedb.collection("Games");
             Query query = collectionReference.orderBy("date_of_match", Query.Direction.DESCENDING).limit(2);
             query.get().addOnSuccessListener(this::getFirebaseGames);
+        }
+        else if(spinner.getSelectedItemPosition() == 7){
+            String result = "";
+            String sportvalue = spinner2.getSelectedItem().toString();
+            List<String2> s2 = FirstActivity.roomDbBuilder.myDaoAdmin().getAthletesParticipatingInXSport(sportvalue);
+
+
+            v1.setText(sportvalue);
+            for (String2 i : s2){
+                result += "First Name: " + i.getName() + "\nLast Name: " + i.getLastname() +"\n\n";
+            }
+            QueryResultsText.setText(result);
         }
         else
             QueryResultsText.setText(null);
