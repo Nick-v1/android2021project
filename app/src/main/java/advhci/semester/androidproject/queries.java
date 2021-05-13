@@ -81,6 +81,7 @@ public class queries extends Fragment {
     private void results(View view) {
         CollectionReference collectionReference;
         spinner2.setVisibility(View.INVISIBLE);
+        v1.setText(null);
 
         if (spinner.getSelectedItemPosition() == 0 ) {
             List<Sports> sports = FirstActivity.roomDbBuilder.myDaoAdmin().getSports();
@@ -93,6 +94,7 @@ public class queries extends Fragment {
 
                 result = result + "Id: " + code + "\nName: " + name + "\nType: " + type + "\nSport gender: " + gender + "\n\n";
             }
+            v1.setText("All Sports");
             Toast.makeText(getActivity(), "Total Sports: "+sports.size(), Toast.LENGTH_SHORT).show();
             QueryResultsText.setText(result);
         }
@@ -115,6 +117,7 @@ public class queries extends Fragment {
                         + athbd +  "\n\n";
 
             }
+            v1.setText("All Athletes");
             Toast.makeText(getActivity(), "Total Athletes: "+athletes.size(), Toast.LENGTH_SHORT).show();
             QueryResultsText.setText(result);
         }
@@ -133,6 +136,7 @@ public class queries extends Fragment {
                 result += "Team ID: " + teamid + "\nTeam name: " + teamname + "\nTeam stadium: " + stadium + "\nParticipates on sport with id: " +teamsportid+ "\nFoundation date: "+founddate+"\n\n";
 
             }
+            v1.setText("All Teams");
             Toast.makeText(getActivity(), "Total Teams: "+teams.size(), Toast.LENGTH_SHORT).show();
             QueryResultsText.setText(result);
         }
@@ -140,6 +144,7 @@ public class queries extends Fragment {
             collectionReference = FirstActivity.firedb.collection("Games");
             collectionReference.get().addOnSuccessListener(this::getFirebaseGames);
             collectionReference.get().addOnFailureListener(this::getFirebaseGamesFailedToRead);
+            v1.setText("All Games");
         }
         else if (spinner.getSelectedItemPosition() == 4){
             List<String2Double1> athletes = FirstActivity.roomDbBuilder.myDaoAdmin().getHighPerformingAthletes();
@@ -151,6 +156,7 @@ public class queries extends Fragment {
 
                 result += "First Name: " + firstname + "\nLast Name: " + lastname + "\nPerformance: " + performance + "\n\n";
             }
+            v1.setText("High Performing Athletes");
             QueryResultsText.setText(result);
         }
         else if (spinner.getSelectedItemPosition() == 5){
@@ -163,18 +169,19 @@ public class queries extends Fragment {
 
                 result += "First Name: " + firstname + "\nLast Name: " + lastname + "\nSport: " + sportname + "\n\n";
             }
+            v1.setText("Sports/Female Athletes");
             QueryResultsText.setText(result);
         }
         else if (spinner.getSelectedItemPosition() == 6){
             collectionReference = FirstActivity.firedb.collection("Games");
             Query query = collectionReference.orderBy("date_of_match", Query.Direction.DESCENDING).limit(2);
             query.get().addOnSuccessListener(this::getFirebaseGames);
+            v1.setText("Latest Games");
         }
         else if(spinner.getSelectedItemPosition() == 7){
             String result = "";
             String sportvalue = spinner2.getSelectedItem().toString();
             List<String2> s2 = FirstActivity.roomDbBuilder.myDaoAdmin().getAthletesParticipatingInXSport(sportvalue);
-
 
             v1.setText(sportvalue);
             for (String2 i : s2){

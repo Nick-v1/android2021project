@@ -181,7 +181,7 @@ public class InsertGameFragment extends Fragment {
                                     game.setGcountry(varcountry);
                                     game.setGsport_name(varsportname);
                                     game.setGsport_type(varsporttype);
-                                    info = "Team " + firstteamid + " vs " + secondteamid + " Team.  " + "  Score: " + firstteamscore + " - " + secondteamscore;
+                                    info = t.getName() + " vs " + t1.getName() + ". " + "  Score: " + firstteamscore + " - " + secondteamscore;
                                     game.setInfo(info);
                                     FirstActivity.firedb.collection("Games").document("" + var_gameid).set(game).addOnSuccessListener(this::onComplete);
                                 } catch (Exception e) { }

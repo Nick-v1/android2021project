@@ -1,5 +1,6 @@
 package advhci.semester.androidproject;
 
+import android.icu.text.UnicodeSetSpanner;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -44,16 +45,22 @@ public class DeleteGameFragment extends Fragment {
 
         try{
             var_gameid = Integer.parseInt(gameid.getText().toString());
+
         } catch (Exception e){}
 
-        try{
-            Games game = new Games();
-            game.setGid(var_gameid);
-            FirstActivity.firedb.collection("Games").document(""+var_gameid).delete().addOnCompleteListener(this::Completed);
-        } catch (Exception e){}
+        if (var_gameid != 0) {
+            try {
+                Games game = new Games();
+                game.setGid(var_gameid);
+                FirstActivity.firedb.collection("Games").document("" + var_gameid).delete().addOnCompleteListener(this::Completed);
+            } catch (Exception e) {
+            }
+        }else
+            Toast.makeText(getContext(), "Game ID can't be null or zero", Toast.LENGTH_SHORT).show();
     }
 
     private void Completed(Task<Void> voidTask) {
         Toast.makeText(getActivity(), "Game deleted", Toast.LENGTH_SHORT).show();
+        gameid.setText(null);
     }
 }

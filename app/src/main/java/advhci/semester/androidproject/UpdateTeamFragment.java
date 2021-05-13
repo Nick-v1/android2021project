@@ -97,6 +97,13 @@ public class UpdateTeamFragment extends Fragment {
         List<Teams> team = FirstActivity.roomDbBuilder.myDaoAdmin().getTeams();
         int checkid = 0;
         int var_teamid = 0;
+        teamname.setText("");
+        teamstadium.setText("");
+        teamcity.setText("");
+        teamcountry.setText("");
+        teamfoundationdate.setText("");
+        String var_sportid = String.valueOf("");
+        teamsportid.setText("");
         try{
             var_teamid = Integer.parseInt(teamid.getText().toString());
         } catch (Exception e){}
@@ -108,9 +115,10 @@ public class UpdateTeamFragment extends Fragment {
                 teamcity.setText(t.getCity());
                 teamcountry.setText(t.getCountry());
                 teamfoundationdate.setText(t.getFoundation_date());
-                String var_sportid = String.valueOf(t.getSport_id());
+                var_sportid = String.valueOf(t.getSport_id());
                 teamsportid.setText(var_sportid);
             }
+
         }
 
         return false;
